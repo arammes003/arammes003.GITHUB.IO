@@ -253,7 +253,7 @@ Una vez ese paso está completado, veremos que el archivo se encuentra en el dir
 
 ![alt text](./assets/practica2-1/image-33.png)
 
-# HTTPS
+# 6.- HTTPS
 
 En este apartado le añadiremos a nuestro servidor una capa de seguridad necesaria por seguridad. Haremos que todos nuestros sitios web alojados hagan uso de certificados SSL y se acceda a ellos por medio de HTTPS.
 
@@ -287,3 +287,15 @@ Y en nuestra máquina añadimos la dirección ip de la máquina Debian:
 Y ya podemos acceder en nuestro navegador a la dirección y veremos la siguiente ventana:
 
 ![alt text](./assets/practica2-1/imagefin.png)
+
+# 7.- Cuestiones finales
+
+### Cuestión 1: ¿Qué pasa si no hago el link simbólico entre `sites-available` y `sites-enabled` de mi sitio web?
+
+Si no hacemos el enlace el stio web no será visible, ya que el archivo que habilita los servidores web es `sites-enabled`
+
+### Cuestión 2: ¿Qué pasa si no le doy los permisos adecuados a `/var/www/nombre_web`?
+
+Si no le damos los permisos adecuados, lo más probable es que ocurran problemas a la hora de intentar acceder al sitio web, ya que si no tenemos permisos de lectura y en algunos casos de ejecución de archivos y directorios, podemos encontrarnos con errores a la hora de acceder como:
+
+- `403 Forbidden`, que ocurre cuando el servidor no tiene permiso para acceder al directorio.

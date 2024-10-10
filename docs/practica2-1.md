@@ -286,4 +286,4 @@ Y en nuestra máquina añadimos la dirección ip de la máquina Debian:
 
 Y ya podemos acceder en nuestro navegador a la dirección y veremos la siguiente ventana:
 
-![alt text](./assets/practica2-1/image-16.png)
+![alt text](./assets/practica2-1/imagefin.png)

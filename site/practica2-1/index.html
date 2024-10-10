@@ -14,6 +14,8 @@
         <link rel="prev" href="..">
       
       
+        <link rel="next" href="../practica2-2/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
@@ -282,6 +284,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.2 - Autenticación en Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -505,10 +527,10 @@ Como vemos si accedemos al directorio <code>/ftp</code>, aparece el archivo que 
 <p><img alt="alt text" src="../assets/practica2-1/image-33.png" /></p>
 <h1 id="https">HTTPS</h1>
 <p>En este apartado le añadiremos a nuestro servidor una capa de seguridad necesaria por seguridad. Haremos que todos nuestros sitios web alojados hagan uso de certificados SSL y se acceda a ellos por medio de HTTPS.</p>
-<p>El primer paso será generar un <strong>Certificado SSL</strong>, para ello usaremos el comando:
+<p>El primer paso será generar un <strong>Certificado SSL</strong>, para ello usaremos el comando:<br>
 <code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt</code>
 <img alt="alt text" src="../assets/practica2-1/image34.png" /></p>
-<p>Nos pedirá uan serie de datos las cuales podemos dejar en blanco:</p>
+<p>Nos pedirá una serie de datos las cuales podemos dejar en blanco:</p>
 <p><img alt="alt text" src="../assets/practica2-1/image35.png" /></p>
 <p>Ahora tendremos que configurar el fichero <code>/etc/nginx/sites-available/nombre_dominio</code>, a través de <code>sudo nano</code> y pondremos lo siguiente:</p>
 <p><img alt="alt text" src="../assets/practica2-1/image36.png" /></p>
@@ -520,7 +542,7 @@ Como vemos si accedemos al directorio <code>/ftp</code>, aparece el archivo que 
 <p>Y en nuestra máquina añadimos la dirección ip de la máquina Debian:</p>
 <p><img alt="alt text" src="../assets/practica2-1/image40.png" /></p>
 <p>Y ya podemos acceder en nuestro navegador a la dirección y veremos la siguiente ventana:</p>
-<p><img alt="alt text" src="../assets/practica2-1/image-16.png" /></p>
+<p><img alt="alt text" src="../assets/practica2-1/imagefin.png" /></p>
 
 
 

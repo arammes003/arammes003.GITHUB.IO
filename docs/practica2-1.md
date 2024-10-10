@@ -249,7 +249,7 @@ Como vemos si accedemos al directorio `/ftp`, aparece el archivo que hemos subid
 
 Ahora vamos a descomprimir el archivo desde nuestra máquina **Debian**, para ello usamos el comando: `unzip nombre_archivo.zip -d /nombre/directorio`:
 
-</center>![alt text](./assets/image-32.png)</center>
+<center>![alt text](./assets/image-32.png)</center>
 
 Una vez ese paso está completado, veremos que el archivo se encuentra en el directorio donde lo habíamos descomprimido, que en mi caso es en el escritorio.
 

@@ -257,12 +257,12 @@ Una vez ese paso está completado, veremos que el archivo se encuentra en el dir
 
 En este apartado le añadiremos a nuestro servidor una capa de seguridad necesaria por seguridad. Haremos que todos nuestros sitios web alojados hagan uso de certificados SSL y se acceda a ellos por medio de HTTPS.
 
-El primer paso será generar un **Certificado SSL**, para ello usaremos el comando:
+El primer paso será generar un **Certificado SSL**, para ello usaremos el comando:<br>
 `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 `
 ![alt text](./assets/practica2-1/image34.png)
 
-Nos pedirá uan serie de datos las cuales podemos dejar en blanco:
+Nos pedirá una serie de datos las cuales podemos dejar en blanco:
 
 ![alt text](./assets/practica2-1/image35.png)
 

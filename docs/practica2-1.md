@@ -5,17 +5,17 @@
 Para instalar el servidor de **NGINX** en nuestra máquina **Debian**, lo primero que tendremos que hacer es actualizar los repositorios con:
 `sudo apt update`<br>
 
-<center>![alt text](./assets/1.png)</center><br>
+![alt text](./assets/practica2-1/1.png)<br>
 Después lo que tenemos que hacer es instalar el paquete correspondiente para instalar nginx:
 `sudo apt install nginx`<br>
 
-<center>![alt text](./assets/nginx.png)</center><br>
+![alt text](./assets/practica2-1/nginx.png)<br>
 Cuando estemos en el proceso de instalación aparecerá un mensaje de '¿Desea continuar? [S/n]', en el cuál le deberemos decir que sí.<br>
 
 Ahora tendremos que comprobar que **nginx** se ha instalado y este funcionando correctamente con el comando:
 `systemctl status nginx`
 
-<center>![alt text](./assets/status_nginx.png)</center>
+![alt text](./assets/practica2-1/status_nginx.png)
 <br>
 Si todo está correcto, veremos un mensaje en verde: `active (running)`
 
@@ -27,38 +27,38 @@ Ahora crearemos la carpeta de nuestro sitio web dentro de la ruta mencionada ant
 
 - Donde `nombre_web` pondremos el nombre que queremos del sitio web sin espacios.<br>
 
-  <center>![alt text](./assets/3.png)</center>
+![alt text](./assets/practica2-1/image.png)
 
 Ahora accedemos a esa carpeta:<br>
 
-<center>![alt text](./assets/5.png)</center>
+![alt text](./assets/practica2-1/image-1.png)
 
 Dentro de esa carpeta, deberemos clonar el siguiente repositorio de github: `https://github.com/cloudacademy/static-website-example`, en caso de no tener **git** instalado lo instalamos con `sudo apt install git`. <br>
 
-<center>![alt text](./assets/6.png)</center>
+![alt text](./assets/practica2-1/image-2.png)
 
 Ahora clonamos el repositorio con el comando `sudo git clone https://github.com/cloudacademy/static-website-example`.<br>
 
-<center>![alt text](./assets/7.png)</center>
+![alt text](./assets/practica2-1/image-3.png)
 
 Además, haremos que el propietario de los datos de esa carpeta sea del usuario www-data, que normalmente es el usuario del servicio web.
 `sudo chown -R www-data:www-data /var/www/nombre_web/html`.<br>
 
-<center>![alt text](./assets/8.png)</center>
+![alt text](./assets/practica2-1/image-4.png)
 
 Y le damos los permisos adecuados para que no nos de un error de acceso no autorizado al entrar en el sitio web con `sudo chmod -R 755 /var/www/nombre_web`.<br>
 
-<center>![alt text](./assets/9.png)</center>
+![alt text](./assets/practica2-1/image-5.png)
 
 Ahora comprobamos que el servidor este funcionando y sirviendo páginas correctamente, para ello accedemos desde un navegador a: `http://IP-maq-virtual`.<br>
 
 - Donde `IP-maq-virtual` es la dirección IP de tu máquina Debian. En caso de no saber cuál es, hacemos un `ip -a`.<br>
 
-<center>![alt text](./assets/10.png)</center>
+![alt text](./assets/practica2-1/image-6.png)
 
 Ahora buscamos la dirección en el navegador de tu máquina física con `http://IP_maq_virtual` donde nos tendrá que aparecer la siguiente ventana:<br>
 
-<center>![alt text](./assets/11.png)</center>
+![alt text](./assets/practica2-1/11.png)
 
 Esto significa que de momento todo esta funcionando correctamente.
 
@@ -73,11 +73,11 @@ Por defecto, hay un archivo de configuración dentro de **`sites-available`**, q
 Para mostrar el contenido de nuetra web, debemos crear un bloque nuevo, para ello, crearemos un nuevo fichero de configuración en la ruta y con el comando siguiente: <br>
 `sudo nano /etc/nginx/sites-available/tu_dominio`<br>
 
-<center>![alt text](./assets/image.png)</center>
+![alt text](./assets/practica2-1/image-7.png)
 
 Y se nos abrirá esta ventana completamente vacía <br>
 
-<center>![alt text](./assets/image-1.png)</center>
+![alt text](./assets/practica2-1/image-8.png)
 
 Dentro tendremos que poner este contenido para configurarlo correctamente:<br>
 
@@ -95,9 +95,7 @@ server {
 }
 ```
 
-En mi caso, la ruta será: `/var/www/html`, que es donde estan todos los archivos web y el nombre `alfonso2`.<br>
-
-<center>![alt text](./assets/image-3.png)</center>
+![alt text](./assets/practica2-1/image-9.png)
 
 Para guardar los cambios hacemos `Ctrl + O` y después `Ctrl + X` para salir.<br>
 
@@ -106,17 +104,17 @@ Ahora crearemos un archivo simbólico entre el archivo que acabamos de crear y e
 
 - **`nombre_web`**, es el nombre que le dimos anteriormente al servidor.<br>
 
-<center>![alt text](./assets/image-4.png)</center>
+![alt text](./assets/practica2-1/image-10.png)
 
 Por último, reiniciamos el servidor de **nginx** para que la configuración se aplique correctamente con: `sudo systemctl restart nginx`.<br>
 
 Si no aparece ningún mensaje de error es que esta todo funcionando correctamente:<br>
 
-<center>![alt text](./assets/image-2.png)</center>
+![alt text](./assets/practica2-1/image-11.png)
 
 Por seguridad, para comprobar que el servidor esta activo, ponemos `sudo systemctl status nginx`.<br>
 
-<center>![alt text](./assets/image-5.png)</center>
+![alt text](./assets/practica2-1/image-12.png)
 
 Si todo está bien aparecera un mensaje en verde de: **`active (running)`**<br>
 
@@ -132,11 +130,11 @@ En esa línea añadimos la **dirección IP** junto al **nombre** de nuestro **se
 
 En caso de no saber la **direción IP** de vuestro servidor, ponemos en la **terminal** de nuestra máquina Debian `ip a`.<br>
 
-<center>![alt text](./assets/image-7.png)</center>
+![alt text](./assets/practica2-1/image-14.png)
 
 Ahora, añadimos una línea con lo mencionado anteriormente.<br>
 
-<center>![alt text](./assets/image-26.png)</center>
+![alt text](./assets/practica2-1/image-13.png)
 
 # 5.- FTP
 
@@ -148,23 +146,23 @@ En primer lugar, lo instalaremos desde los repositorios con estos comandos:<br>
 
 `sudo apt-get update && sudo apt-get install vsftpd`<br>
 
-<center>![alt text](./assets/image-8.png)</center>
+![alt text](./assets/practica2-1/vsftpd.png)
 
 Ahora creamos una carpeta en nuestro **home** de Debian con: <br>
 `mkdir /home/nombre_usuario/ftp`, donde:
 
 - `nombre_usuario` es el nombre del usuario en la máquina virtual.<br>
 
-  ![alt text](./assets/image-9.png)<br>
+  ![alt text](./assets/practica2-1/mkdirftp.png)<br>
 
 Ahora creamos un certificados de seguridad necesario para aportar la capa de cifrado de nuestra conexión a través del comando:<br>
 `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem`<br>
 
-<center>![alt text](./assets/image-10.png)</center>
+![alt text](./assets/practica2-1/openssl.png)
 
 Una vez puesto este comando, nos empezarán a hacer distintas preguntas, las cuales podemos dejar en blanco o responder, en mi caso las dejo en blanco.<br>
 
-<center>![alt text](./assets/image-24.png)</center>
+![alt text](./assets/practica2-1/image-24.png)
 
 Una vez realizado este paso, configuraremos el archivo de configuración de **vsftpd** con el comando: `sudo nano /etc/vsftpd.conf`.
 
@@ -176,7 +174,7 @@ rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 ssl_enable=NO
 ```
 
-<center>![alt text](./assets/image-12.png)</center>
+![alt text](./assets/practica2-1/rsa1.png)
 
 Y ponemos lo siguiente: <br>
 
@@ -196,19 +194,19 @@ ssl_ciphers=HIGH
 local_root=/home/nombre_usuario/ftp
 ```
 
-<center>![alt text](./assets/image-16.png)</center>
+![alt text](./assets/practica2-1/rsa.png)
 
 Cuando guardemos los cambios, reiniciamos el servicio para que la nueva configuración se habilite: `sudo systemctl restart --now vsftpd`. Si todo va bien, no nos aparecerá ningún mensaje:<br>
 
-<center>![alt text](./assets/image-14.png)</center>
+![alt text](./assets/practica2-1/ipa.png)
 
 Tras acabar la configuración, podremos acceder a nuestro servidor mediante un cliente de FTP, en mi caso será **Filezilla**, el cuál podemos descargar en nuestra máquina física a través de este enlace: [FileZilla](https://filezilla-project.org). <br>
 
-<center>![alt text](./assets/image-25.png)</center>
+![alt text](./assets/practica2-1/image-25.png)
 
 Cuando termine el proceso de instalación, iniciamos la aplicacion y nos encontraremos con la siguiente ventana:<br>
 
-<center>![alt text](./assets/image-34.png)</center>
+![alt text](./assets/practica2-1/image-34.png)
 
 Deberemos configurarlo de la siguiente manera:
 
@@ -218,15 +216,15 @@ Deberemos configurarlo de la siguiente manera:
 - **Puerto**, será el 21 para conectarnos usando los certificados que hemos generado antes.<br>
   Quedaría de la siguiente manera:<br>
 
-  <center>![alt text](./assets/image-27.png)</center>
+![alt text](./assets/practica2-1/image-27.png)
 
-  Ahora damos clic en **`Conexión rápida`** y nos saltará un aviso a propósito del certificado, pulsamos en aceptar ya que este peligro lo hemos generado nosotros mismos:<br>
+Ahora damos clic en **`Conexión rápida`** y nos saltará un aviso a propósito del certificado, pulsamos en aceptar ya que este peligro lo hemos generado nosotros mismos:<br>
 
-  <center>![alt text](./assets/image-23.png)</center>
+![alt text](./assets/practica2-1/image-23.png)
 
 Una vez que ya estemos conectados, buscaremos en la sección izquierda de la pantalla la carpeta donde tengamos el **`.zip`** y en la parte derecha seleccionaremos la carpeta donde queremos subirla, haciendo doble click o utilizando el **`botón derecho > subir`**.
 
-<center>![alt text](./assets/image-28.png)</center>
+![alt text](./assets/practica2-1/image-28.png)
 
 Otra opción es conectarnos mediante **SFTP**, que para ello tendriamos que:
 
@@ -236,21 +234,56 @@ Otra opción es conectarnos mediante **SFTP**, que para ello tendriamos que:
 
 Quedaría de la siguiente manera:
 
-<center>![alt text](./assets/image-30.png)</center>
+![alt text](./assets/practica2-1/image-30.png)
 
 Hacemos click en **`Conexión rápida`** y empezará a conectarnos con el servidor **Debian**. Devido a que estamos usando claves FTP para conectarnos, nos aparecerá un aviso parecido al que nos salía al conectarnos por primera vez por SSH a nuestra **Debian**, que aceptamos porque sabemos que no entraña ningún peligro en este caso:
 
-<center>![alt text](./assets/image-29.png)</center>
+![alt text](./assets/practica2-1/image-29.png)
 
 Aquí nos conecta al `/home` del usuario, en vez de al `ftp`.
 Como vemos si accedemos al directorio `/ftp`, aparece el archivo que hemos subido anteriormente.
 
-<center>![alt text](./assets/image-31.png)</center>
+![alt text](./assets/practica2-1/image-31.png)
 
 Ahora vamos a descomprimir el archivo desde nuestra máquina **Debian**, para ello usamos el comando: `unzip nombre_archivo.zip -d /nombre/directorio`.
 
-<center>![alt text](./assets/image-32.png)</center>
+![alt text](./assets/practica2-1/image-32.png)
 
 Una vez ese paso está completado, veremos que el archivo se encuentra en el directorio donde lo habíamos descomprimido, que en mi caso es en el escritorio.
 
-<center>![alt text](./assets/image-33.png)</center>
+![alt text](./assets/practica2-1/image-33.png)
+
+# HTTPS
+
+En este apartado le añadiremos a nuestro servidor una capa de seguridad necesaria por seguridad. Haremos que todos nuestros sitios web alojados hagan uso de certificados SSL y se acceda a ellos por medio de HTTPS.
+
+El primer paso será generar un **Certificado SSL**, para ello usaremos el comando:
+`sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+`
+![alt text](./assets/practica2-1/image34.png)
+
+Nos pedirá uan serie de datos las cuales podemos dejar en blanco:
+
+![alt text](./assets/practica2-1/image35.png)
+
+Ahora tendremos que configurar el fichero `/etc/nginx/sites-available/nombre_dominio`, a través de `sudo nano` y pondremos lo siguiente:
+
+![alt text](./assets/practica2-1/image36.png)
+
+Guardamos los cambios con `Ctrl + O` y salimos con `Ctrl + X`.
+
+Tras eso comprobamos que la sintaxis esté bien con `sudo nginx -t`, si no hay problemas aparecerá un mensaje de `syntax is ok`:
+
+![alt text](./assets/practica2-1/image39.png)
+
+Ahora reiniciamos nuestro servidor de **nginx** para que se activen los cambios con `sudo systemctl restart nginx`. Si todo va bien no aparecerá ningún mensaje de error:
+
+![alt text](./assets/practica2-1/image37.png)
+
+Y en nuestra máquina añadimos la dirección ip de la máquina Debian:
+
+![alt text](./assets/practica2-1/image40.png)
+
+Y ya podemos acceder en nuestro navegador a la dirección y veremos la siguiente ventana:
+
+![alt text](./assets/practica2-1/image-16.png)

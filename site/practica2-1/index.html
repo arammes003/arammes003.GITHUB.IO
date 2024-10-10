@@ -1,0 +1,560 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mydomain.org/mysite/practica2-1/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Practica 2.1 - Instalación y configuración de un servidor web Nginx - Alfonso Ramírez Mestanza - DAW</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-21-instalacion-y-configuracion-de-un-servidor-web-nginx" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Alfonso Ramírez Mestanza - DAW" class="md-header__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alfonso Ramírez Mestanza - DAW
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practica 2.1 - Instalación y configuración de un servidor web Nginx
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Alfonso Ramírez Mestanza - DAW" class="md-nav__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Alfonso Ramírez Mestanza - DAW
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Practica 2.1 - Instalación y configuración de un servidor web Nginx
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Practica 2.1 - Instalación y configuración de un servidor web Nginx
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalacion-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Instalación servidor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-creacion-de-las-carpeta-del-sitio-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Creación de las carpeta del sitio web
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalacion-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Instalación servidor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-creacion-de-las-carpeta-del-sitio-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Creación de las carpeta del sitio web
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="practica-21-instalacion-y-configuracion-de-un-servidor-web-nginx">Practica 2.1 - Instalación y configuración de un servidor web Nginx</h1>
+<h2 id="1-instalacion-servidor">1.- Instalación servidor</h2>
+<p>Para instalar el servidor de <strong>NGINX</strong> en nuestra máquina <strong>Debian</strong>, lo primero que tendremos que hacer es actualizar los repositorios con:
+<code>sudo apt update</code><br></p>
+<p><center><img alt="alt text" src="../assets/1.png" /></center><br>
+Después lo que tenemos que hacer es instalar el paquete correspondiente para instalar nginx:
+<code>sudo apt install nginx</code><br></p>
+<p><center><img alt="alt text" src="../assets/nginx.png" /></center><br>
+Cuando estemos en el proceso de instalación aparecerá un mensaje de '¿Desea continuar? [S/n]', en el cuál le deberemos decir que sí.<br></p>
+<p>Ahora tendremos que comprobar que <strong>nginx</strong> se ha instalado y este funcionando correctamente con el comando:
+<code>systemctl status nginx</code></p>
+<p><center><img alt="alt text" src="../assets/status_nginx.png" /></center>
+<br>
+Si todo está correcto, veremos un mensaje en verde: <code>active (running)</code></p>
+<h2 id="2-creacion-de-las-carpeta-del-sitio-web">2.- Creación de las carpeta del sitio web</h2>
+<p>Al igual que en Apache, todos los archivos que formarán parte de un sitio web se organiza en carpetas. Normalmente, estas carpetas van dentro de la ubicación <code>\var\www</code>.<br>
+Ahora crearemos la carpeta de nuestro sitio web dentro de la ruta mencionada anteriormente con el siguiente comando: <br>
+<code>sudo mkdir -p /var/www/nombre_web/html</code><br></p>
+<ul>
+<li>Donde <code>nombre_web</code> pondremos el nombre que queremos del sitio web sin espacios.<br></li>
+</ul>
+<p><center><img alt="alt text" src="../assets/3.png" /></center></p>
+<p>Ahora accedemos a esa carpeta:<br></p>
+<p><center><img alt="alt text" src="../assets/5.png" /></center></p>
+<p>Dentro de esa carpeta, deberemos clonar el siguiente repositorio de github: <code>https://github.com/cloudacademy/static-website-example</code>, en caso de no tener <strong>git</strong> instalado lo instalamos con <code>sudo apt install git</code>. <br></p>
+<p><center><img alt="alt text" src="../assets/6.png" /></center></p>
+<p>Ahora clonamos el repositorio con el comando <code>sudo git clone https://github.com/cloudacademy/static-website-example</code>.<br></p>
+<p><center><img alt="alt text" src="../assets/7.png" /></center></p>
+<p>Además, haremos que el propietario de los datos de esa carpeta sea del usuario www-data, que normalmente es el usuario del servicio web.
+<code>sudo chown -R www-data:www-data /var/www/nombre_web/html</code>.<br></p>
+<p><center><img alt="alt text" src="../assets/8.png" /></center></p>
+<p>Y le damos los permisos adecuados para que no nos de un error de acceso no autorizado al entrar en el sitio web con <code>sudo chmod -R 755 /var/www/nombre_web</code>.<br></p>
+<p><center><img alt="alt text" src="../assets/9.png" /></center></p>
+<p>Ahora comprobamos que el servidor este funcionando y sirviendo páginas correctamente, para ello accedemos desde un navegador a: <code>http://IP-maq-virtual</code>.<br></p>
+<ul>
+<li>Donde <code>IP-maq-virtual</code> es la dirección IP de tu máquina Debian. En caso de no saber cuál es, hacemos un <code>ip -a</code>.<br></li>
+</ul>
+<p><center><img alt="alt text" src="../assets/10.png" /></center></p>
+<p>Ahora buscamos la dirección en el navegador de tu máquina física con <code>http://IP_maq_virtual</code> donde nos tendrá que aparecer la siguiente ventana:<br></p>
+<p><center><img alt="alt text" src="../assets/11.png" /></center></p>
+<p>Esto significa que de momento todo esta funcionando correctamente.</p>
+<h1 id="3-configuracion-de-servidor-web-nginx">3.- Configuración de servidor web NGINX</h1>
+<p>En <strong>Nginx</strong> hay dos rutas importantes. La primera es <strong><code>sites-available</code></strong>, que es donde se almacenan los archivos de configuración de los host virtuales. Es decir, cada uno de los sitios web que está almacenado en el servidor.<br></p>
+<p>Por otro lado, está <strong><code>sites-enabled</code></strong>, que contiene los archivos que almacenan la configuración de los sitios web que están habilitados.<br></p>
+<p>Por defecto, hay un archivo de configuración dentro de <strong><code>sites-available</code></strong>, que es la página web que hemos visto en el anterior paso.<br></p>
+<p>Para mostrar el contenido de nuetra web, debemos crear un bloque nuevo, para ello, crearemos un nuevo fichero de configuración en la ruta y con el comando siguiente: <br>
+<code>sudo nano /etc/nginx/sites-available/tu_dominio</code><br></p>
+<p><center><img alt="alt text" src="../assets/image.png" /></center></p>
+<p>Y se nos abrirá esta ventana completamente vacía <br></p>
+<p><center><img alt="alt text" src="../assets/image-1.png" /></center></p>
+<p>Dentro tendremos que poner este contenido para configurarlo correctamente:<br></p>
+<pre><code>server {
+
+        listen 80;
+        listen [::]:80;
+        root /ruta/absoluta/archivo/index;
+        index index.html index.htm index.nginx-debian.html;
+        server_name nombre_web;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+</code></pre>
+<p>En mi caso, la ruta será: <code>/var/www/html</code>, que es donde estan todos los archivos web y el nombre <code>alfonso2</code>.<br></p>
+<p><center><img alt="alt text" src="../assets/image-3.png" /></center></p>
+<p>Para guardar los cambios hacemos <code>Ctrl + O</code> y después <code>Ctrl + X</code> para salir.<br></p>
+<p>Ahora crearemos un archivo simbólico entre el archivo que acabamos de crear y el de sitios habilitados, para que así, se de de alta automáticamente, para ello utilizaremos el siguiente comando: <br>
+<code>sudo ln -s /etc/nginx/sites-available/nombre_web /etc/nginx/sites-enabled/</code>, donde:</p>
+<ul>
+<li><strong><code>nombre_web</code></strong>, es el nombre que le dimos anteriormente al servidor.<br></li>
+</ul>
+<p><center><img alt="alt text" src="../assets/image-4.png" /></center></p>
+<p>Por último, reiniciamos el servidor de <strong>nginx</strong> para que la configuración se aplique correctamente con: <code>sudo systemctl restart nginx</code>.<br></p>
+<p>Si no aparece ningún mensaje de error es que esta todo funcionando correctamente:<br></p>
+<p><center><img alt="alt text" src="../assets/image-2.png" /></center></p>
+<p>Por seguridad, para comprobar que el servidor esta activo, ponemos <code>sudo systemctl status nginx</code>.<br></p>
+<p><center><img alt="alt text" src="../assets/image-5.png" /></center></p>
+<p>Si todo está bien aparecera un mensaje en verde de: <strong><code>active (running)</code></strong><br></p>
+<h1 id="4-comprobaciones">4.- Comprobaciones</h1>
+<p>Como aún no tenemos un servidor DNS que traduzca las IPs a nombres, deberemos hacerlo de forma manual <strong>editando</strong> nuestro archivo <code>/etc/hosts</code> de <strong>nuestra máquina física</strong> para que así asocie la IP de la máquina virtual a nuestro nombre del server.<br></p>
+<p>En caso de estar en <strong>Linux</strong>, modificaremos el archivo: <code>/etc/hosts</code>.<br></p>
+<p>Y en Windows: <code>C:\Windows\System32\drivers\etc\hosts</code>.</p>
+<p>En esa línea añadimos la <strong>dirección IP</strong> junto al <strong>nombre</strong> de nuestro <strong>servidor</strong>, de la siguiente manera: <code>192.168.X.X nombre_web</code>;<br></p>
+<p>En caso de no saber la <strong>direción IP</strong> de vuestro servidor, ponemos en la <strong>terminal</strong> de nuestra máquina Debian <code>ip a</code>.<br></p>
+<p><center><img alt="alt text" src="../assets/image-7.png" /></center></p>
+<p>Ahora, añadimos una línea con lo mencionado anteriormente.<br></p>
+<p><center><img alt="alt text" src="../assets/image-26.png" /></center></p>
+<h1 id="5-ftp">5.- FTP</h1>
+<p>En caso de querer tener varios sitios webs en el mismo servidor de <strong>nginx</strong>, tendremos que repetir todos los pasos anteriores con el nuevo nombre de dominio.</p>
+<h2 id="51-configurar-servidor-sftp-en-debian">5.1.- Configurar servidor SFTP en Debian</h2>
+<p>En primer lugar, lo instalaremos desde los repositorios con estos comandos:<br></p>
+<p><code>sudo apt-get update &amp;&amp; sudo apt-get install vsftpd</code><br></p>
+<p><center><img alt="alt text" src="../assets/image-8.png" /></center></p>
+<p>Ahora creamos una carpeta en nuestro <strong>home</strong> de Debian con: <br>
+<code>mkdir /home/nombre_usuario/ftp</code>, donde:</p>
+<ul>
+<li><code>nombre_usuario</code> es el nombre del usuario en la máquina virtual.<br></li>
+</ul>
+<p><img alt="alt text" src="../assets/image-9.png" /><br></p>
+<p>Ahora creamos un certificados de seguridad necesario para aportar la capa de cifrado de nuestra conexión a través del comando:<br>
+<code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem</code><br></p>
+<p><center><img alt="alt text" src="../assets/image-10.png" /></center></p>
+<p>Una vez puesto este comando, nos empezarán a hacer distintas preguntas, las cuales podemos dejar en blanco o responder, en mi caso las dejo en blanco.<br></p>
+<p><center><img alt="alt text" src="../assets/image-24.png" /></center></p>
+<p>Una vez realizado este paso, configuraremos el archivo de configuración de <strong>vsftpd</strong> con el comando: <code>sudo nano /etc/vsftpd.conf</code>.</p>
+<p>Primero buscamos estas líneas, las cuales tendremos que eliminar:</p>
+<pre><code>rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+ssl_enable=NO
+</code></pre>
+<p><center><img alt="alt text" src="../assets/image-12.png" /></center></p>
+<p>Y ponemos lo siguiente: <br></p>
+<pre><code>rsa_cert_file=/etc/ssl/private/vsftpd.pem
+rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+ssl_enable=YES
+allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+require_ssl_reuse=NO
+ssl_ciphers=HIGH
+
+local_root=/home/nombre_usuario/ftp
+</code></pre>
+<p><center><img alt="alt text" src="../assets/image-16.png" /></center></p>
+<p>Cuando guardemos los cambios, reiniciamos el servicio para que la nueva configuración se habilite: <code>sudo systemctl restart --now vsftpd</code>. Si todo va bien, no nos aparecerá ningún mensaje:<br></p>
+<p><center><img alt="alt text" src="../assets/image-14.png" /></center></p>
+<p>Tras acabar la configuración, podremos acceder a nuestro servidor mediante un cliente de FTP, en mi caso será <strong>Filezilla</strong>, el cuál podemos descargar en nuestra máquina física a través de este enlace: <a href="https://filezilla-project.org">FileZilla</a>. <br></p>
+<p><center><img alt="alt text" src="../assets/image-25.png" /></center></p>
+<p>Cuando termine el proceso de instalación, iniciamos la aplicacion y nos encontraremos con la siguiente ventana:<br></p>
+<p><center><img alt="alt text" src="../assets/image-34.png" /></center></p>
+<p>Deberemos configurarlo de la siguiente manera:</p>
+<ul>
+<li><strong>Servidor</strong>, pondremos la dirección IP de la máquina Debian.</li>
+<li><strong>Nombre de usuario</strong>, pondremos el nombre de usuario de Debian.</li>
+<li><strong>Contraseña</strong>, pondremos la contraseña del usuario</li>
+<li><strong>Puerto</strong>, será el 21 para conectarnos usando los certificados que hemos generado antes.<br>
+  Quedaría de la siguiente manera:<br></li>
+</ul>
+<p><center><img alt="alt text" src="../assets/image-27.png" /></center></p>
+<p>Ahora damos clic en <strong><code>Conexión rápida</code></strong> y nos saltará un aviso a propósito del certificado, pulsamos en aceptar ya que este peligro lo hemos generado nosotros mismos:<br></p>
+<p><center><img alt="alt text" src="../assets/image-23.png" /></center></p>
+<p>Una vez que ya estemos conectados, buscaremos en la sección izquierda de la pantalla la carpeta donde tengamos el <strong><code>.zip</code></strong> y en la parte derecha seleccionaremos la carpeta donde queremos subirla, haciendo doble click o utilizando el <strong><code>botón derecho &gt; subir</code></strong>.</p>
+<p><center><img alt="alt text" src="../assets/image-28.png" /></center></p>
+<p>Otra opción es conectarnos mediante <strong>SFTP</strong>, que para ello tendriamos que:</p>
+<ul>
+<li>En servidor pondremos: <strong><code>sftp://dirección_ip</code></strong></li>
+<li>Quitaremos la contraseña.</li>
+<li>Pondremos el puerto 22.</li>
+</ul>
+<p>Quedaría de la siguiente manera:</p>
+<p><center><img alt="alt text" src="../assets/image-30.png" /></center></p>
+<p>Hacemos click en <strong><code>Conexión rápida</code></strong> y empezará a conectarnos con el servidor <strong>Debian</strong>. Devido a que estamos usando claves FTP para conectarnos, nos aparecerá un aviso parecido al que nos salía al conectarnos por primera vez por SSH a nuestra <strong>Debian</strong>, que aceptamos porque sabemos que no entraña ningún peligro en este caso:</p>
+<p><center><img alt="alt text" src="../assets/image-29.png" /></center></p>
+<p>Aquí nos conecta al <code>/home</code> del usuario, en vez de al <code>ftp</code>.
+Como vemos si accedemos al directorio <code>/ftp</code>, aparece el archivo que hemos subido anteriormente.</p>
+<p><center><img alt="alt text" src="../assets/image-31.png" /></center></p>
+<p>Ahora vamos a descomprimir el archivo desde nuestra máquina <strong>Debian</strong>, para ello usamos el comando: <code>unzip nombre_archivo.zip -d /nombre/directorio</code>:</p>
+<p></center><img alt="alt text" src="../assets/image-32.png" /></center></p>
+<p>Una vez ese paso está completado, veremos que el archivo se encuentra en el directorio donde lo habíamos descomprimido, que en mi caso es en el escritorio.</p>
+<p><center><img alt="alt text" src="../assets/image-33.png" /></center></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

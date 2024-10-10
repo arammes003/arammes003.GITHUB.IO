@@ -1,7 +1,5 @@
-# Alfonso Ramírez Mestanza
+# Inicio
 
-## Práctica 2.1 - Instalación y configuración de un servidor web Nginx
+## Bienvenido al Mkdocs de Alfonso Ramírez Mestanza
 
-## Description
-
-hjjsvcb
+En este mkdocs, encontrarás todas las prácticas de la asignatura de `Despligue de Aplicaciones Web` del alumno `Alfonso Ramírez Mestanza` de `2º DAW-B` del instituto `IES Gran Capitán`.

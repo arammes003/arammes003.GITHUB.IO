@@ -525,7 +525,7 @@ Como vemos si accedemos al directorio <code>/ftp</code>, aparece el archivo que 
 <p><img alt="alt text" src="../assets/practica2-1/image-32.png" /></p>
 <p>Una vez ese paso está completado, veremos que el archivo se encuentra en el directorio donde lo habíamos descomprimido, que en mi caso es en el escritorio.</p>
 <p><img alt="alt text" src="../assets/practica2-1/image-33.png" /></p>
-<h1 id="https">HTTPS</h1>
+<h1 id="6-https">6.- HTTPS</h1>
 <p>En este apartado le añadiremos a nuestro servidor una capa de seguridad necesaria por seguridad. Haremos que todos nuestros sitios web alojados hagan uso de certificados SSL y se acceda a ellos por medio de HTTPS.</p>
 <p>El primer paso será generar un <strong>Certificado SSL</strong>, para ello usaremos el comando:<br>
 <code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt</code>
@@ -543,6 +543,14 @@ Como vemos si accedemos al directorio <code>/ftp</code>, aparece el archivo que 
 <p><img alt="alt text" src="../assets/practica2-1/image40.png" /></p>
 <p>Y ya podemos acceder en nuestro navegador a la dirección y veremos la siguiente ventana:</p>
 <p><img alt="alt text" src="../assets/practica2-1/imagefin.png" /></p>
+<h1 id="7-cuestiones-finales">7.- Cuestiones finales</h1>
+<h3 id="cuestion-1-que-pasa-si-no-hago-el-link-simbolico-entre-sites-available-y-sites-enabled-de-mi-sitio-web">Cuestión 1: ¿Qué pasa si no hago el link simbólico entre <code>sites-available</code> y <code>sites-enabled</code> de mi sitio web?</h3>
+<p>Si no hacemos el enlace el stio web no será visible, ya que el archivo que habilita los servidores web es <code>sites-enabled</code></p>
+<h3 id="cuestion-2-que-pasa-si-no-le-doy-los-permisos-adecuados-a-varwwwnombre_web">Cuestión 2: ¿Qué pasa si no le doy los permisos adecuados a <code>/var/www/nombre_web</code>?</h3>
+<p>Si no le damos los permisos adecuados, lo más probable es que ocurran problemas a la hora de intentar acceder al sitio web, ya que si no tenemos permisos de lectura y en algunos casos de ejecución de archivos y directorios, podemos encontrarnos con errores a la hora de acceder como:</p>
+<ul>
+<li><code>403 Forbidden</code>, que ocurre cuando el servidor no tiene permiso para acceder al directorio.</li>
+</ul>
 
 
 

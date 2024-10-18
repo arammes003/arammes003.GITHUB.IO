@@ -8,23 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://mydomain.org/mysite/">
+        <link rel="canonical" href="https://mydomain.org/mysite/practica2-3/">
+      
+      
+        <link rel="prev" href="../practica2-2/">
       
       
       
-        <link rel="next" href="practica2-1/">
-      
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
-        <title>Alfonso Ramírez Mestanza - DAW</title>
+        <title>Práctica 2.3.- Proxy inverso con Nginx - Alfonso Ramírez Mestanza - DAW</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inicio" class="md-skip">
+        <a href="#practica-23-proxy-inverso-con-nginx" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Alfonso Ramírez Mestanza - DAW" class="md-header__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+    <a href=".." title="Alfonso Ramírez Mestanza - DAW" class="md-header__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inicio
+              Práctica 2.3.- Proxy inverso con Nginx
             
           </span>
         </div>
@@ -173,7 +173,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Alfonso Ramírez Mestanza - DAW" class="md-nav__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+    <a href=".." title="Alfonso Ramírez Mestanza - DAW" class="md-nav__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -188,30 +188,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Inicio
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -220,35 +200,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#bienvenido-al-mkdocs-de-alfonso-ramirez-mestanza" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bienvenido al Mkdocs de Alfonso Ramírez Mestanza
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -260,7 +211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="practica2-1/" class="md-nav__link">
+      <a href="../practica2-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,7 +231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="practica2-2/" class="md-nav__link">
+      <a href="../practica2-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -297,10 +248,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="practica2-3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -309,6 +269,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -333,23 +294,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#bienvenido-al-mkdocs-de-alfonso-ramirez-mestanza" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bienvenido al Mkdocs de Alfonso Ramírez Mestanza
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -363,9 +307,80 @@
                   
 
 
-<h1 id="inicio">Inicio</h1>
-<h2 id="bienvenido-al-mkdocs-de-alfonso-ramirez-mestanza">Bienvenido al Mkdocs de Alfonso Ramírez Mestanza</h2>
-<p>En este mkdocs, encontrarás todas las prácticas de la asignatura de <code>Despligue de Aplicaciones Web</code> del alumno <code>Alfonso Ramírez Mestanza</code> de <code>2º DAW-B</code> del instituto <code>IES Gran Capitán</code>.</p>
+<h1 id="practica-23-proxy-inverso-con-nginx">Práctica 2.3.- Proxy inverso con Nginx</h1>
+<h1 id="1-configuracion-nginx">1. Configuración Nginx</h1>
+<h2 id="11-servidor-web">1.1.- Servidor web</h2>
+<p>El primer paso para la realización de esta práctica es clonar la máquina <strong>Debian</strong> en la que tenemos instalado nuestro servidor de <strong>Nginx</strong>.</p>
+<ul>
+<li>Un servidor servirá los sitios webs que ya hemos configurado anteriormente.</li>
+<li>El nuevo servidor estará configurado como <strong><code>proxy inverso</code></strong>.</li>
+<li>Realizaremos las peticiones HTTP desde nuestra máquina física hacia el <strong>proxy clonado</strong>, que este nos redigirá hasta el servidor web original.</li>
+</ul>
+<p><strong>IMPORTANTE</strong> A la hora de clonar la máquina es importante <code>Generar nuevas direcciones MAC</code>, para poder comunicarnos entre las máquinas.
+<img alt="alt text" src="../assets/practica2-3/image.png" />
+Después de clonar la máquina, la iniciaremos y haremos los siguientes cambios.</p>
+<ol>
+<li>
+<p>Cambiar el nombre de nuestra web por <code>webserver</code>, esto implica estos cambios:</p>
+</li>
+<li>
+<p>Cambiar el nombre del archivo de configuración de sitios disponibles en <strong>Nginx</strong>, para ello usamos <code>sudo mv /etc/nginx/sites-available/nombre_servidor /etc/nginx/sites-available/webserver</code>.
+  <img alt="alt text" src="../assets/practica2-3/image-1.png" />
+  Tras esto, accederemos al fichero de configuración con <code>sudo nano /etc/nginx/sites-available/webserver</code> para seguir realizando cambios.
+  <img alt="alt text" src="../assets/practica2-3/image-2.png" /></p>
+</li>
+<li>
+<p>Eliminamos el enlace simbólico con el comando <code>unlink nombre_del_link</code> dentro de la carpeta <code>sites_enabled</code> y creamos el nuevo enlace para el nuevo nombre de archivo con <code>sudo ln /etc/nginx/sites-available/webserver /etc/nginx/sites-enabled/</code>.
+  <img alt="alt text" src="../assets/practica2-3/image-3.png" /></p>
+</li>
+<li>
+<p>Ahora volvemos a configurar el archivo de configuración y cambiamos el puerto de escucha del <code>80</code> al <code>8080</code>.
+    <img alt="alt text" src="../assets/practica2-3/image-20.png" /></p>
+</li>
+<li>
+<p>Reiniciamos <strong>Nginx</strong> con <code>sudo systemctl restart nginx</code>, si no aparece ningún mensaje significa que la configuración esta correcta.
+    <img alt="alt text" src="../assets/practica2-3/image-5.png" /></p>
+</li>
+</ol>
+<h2 id="12-proxy-inverso">1.2.- Proxy inverso</h2>
+<p>Iniciamos nuestra otra máquina <strong>Debian</strong>, es decir, donde configuraremos el proxy.
+Para ello creamos un archivo de configuración en <code>sites-available</code> con el nombre <code>ejemplo_proxy</code> con <code>sudo nano /etc/nginx/sites-available/ejemplo_proxy</code>
+<img alt="alt text" src="../assets/practica2-3/image-4.png" /></p>
+<p>Y ponemos la siguiente configuración:
+<img alt="alt text" src="../assets/practica2-3/image-7.png" /></p>
+<ul>
+<li>En <code>listen</code>, ponemos el puerto que queremos escuchar.</li>
+<li>En <code>server_name</code>, ponemos el nombre de nuestro dominio al que queremos acceder en el proxy.</li>
+<li>En <code>proxy_pass</code>, ponemos la dirección IP de la máquina que tiene alojada el servidor y el puerto al que queremos reenviar.</li>
+<li>Por último creamos un link simbólico con:<br> <code>sudo ln /etc/nginx/sites-available/ejemplo-proxy /etc/nginx/sites-enabled/</code>
+  <img alt="alt text" src="../assets/practica2-3/image-8.png" /></li>
+</ul>
+<h1 id="2-comprobaciones">2.- Comprobaciones</h1>
+<p>Editamos nuestro fichero <code>hosts</code> para añadir el sitio <code>ejemplo-proxy.com</code>:
+<img alt="alt text" src="../assets/practica2-3/image-6.png" /></p>
+<p>Y ahora accedemos a nuestro sitio web mediante <code>ejemplo-proxy.com</code>, donde si todo va bien nos preguntará nuestro usuario y contraseña como en anteriores prácticas:
+<img alt="alt text" src="../assets/practica2-3/image-10.png" /></p>
+<p>Y accedemos a la consola mediante la tecla <strong>F12</strong>, al apartado de red y vemos lo siguiente:
+<img alt="alt text" src="../assets/practica2-3/image-11.png" /></p>
+<p>Aquí vemos que la respuesta de la petición es un código <code>200 OK</code>, también vemos las cabeceras que se incluyen en la petición del método <strong>GET</strong> y en la respuesta de la petición.</p>
+<p>Ahora comprobamos los access.log en los dos servidores:<br>
+<strong>EJEMPLO_PROXY</strong>
+<img alt="alt text" src="../assets/practica2-3/image-12.png" />
+<img alt="alt text" src="../assets/practica2-3/image-13.png" /></p>
+<p><strong>WebServer</strong>
+<img alt="alt text" src="../assets/practica2-3/image-14.png" /></p>
+<h1 id="3-anadiendo-cabeceras">3.- Añadiendo cabeceras</h1>
+<p>Además de haber mirado los logs, vamos a demostrar aún de forma más clara que la petición está pasando por el proxy inverso y que está llegando al servidor web y que vuelve por el mismo camino.</p>
+<p>Para ello, añadiremos una cabecera en el fichero de configuración del <strong>Proxy inverso</strong> dentro de <code>location / {...}</code> añadimos esta directiva: <code>add_header Host nombre_del_host</code>, quedaría así:
+<img alt="alt text" src="../assets/practica2-3/image-9.png" /></p>
+<p>El siguiente paso será reiniciar <strong>nginx</strong>:
+<img alt="alt text" src="../assets/practica2-3/image-16.png" /></p>
+<p>Ahora comprobamos que podemos acceder al sitio web sin problemas y buscamos que el proxy inverso ha añadido la cabecera a la respuesta:
+<img alt="alt text" src="../assets/practica2-3/image-18.png" /></p>
+<p>Y ahora hacemos el mismo paso en nuestro <strong>WebServer</strong>. Si todo esta correcto, aparecerán ambas cabeceras.
+<img alt="alt text" src="../assets/practica2-3/image-19.png" /></p>
+<p><strong>IMPORTANTE</strong> Para realizar estas comprobaciones es imprescindible tener marcado el <strong>checkbox</strong> de <code>Desactivar caché</code>, ya que si no se marca esta opción la página se guardará en la memoria caché del navegador y no recibiréis la respuesta del servidor.
+<img alt="alt text" src="../assets/practica2-3/image-17.png" /></p>
 
 
 
@@ -412,10 +427,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>

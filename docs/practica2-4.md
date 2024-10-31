@@ -24,7 +24,7 @@ Accederemos a `http://balanceo` yu observaremos que las peticiones se van repart
 
 **ATENCIÓN!** Los sitios web configurados anteriormente no se van a utilizar, por ello, recomiendo desactivarlos de la carpeta `/etc/nginx/sites-enabled` con el comando `unlink nombre_archivo`. **si no se hace esto, nos dará error en todas las prácticas restantes**.
 
-**Webserver1**
+**Ejemplo en webserver1**
 ![alt text](./assets/practica2-4/image.png)
 
 ### 3.1.- Nginx Webserver1
@@ -52,7 +52,7 @@ En este servidor se hace una configuración idéntica al **webserver1** pero pon
 
 ### 3.3.- Nginx Proxy Inverso
 
-Ya disponemos de los dos **webservers** ahora configuraremos el **proxy inverso** como el **balanceador de carga**
+Ya disponemos de los dos **webservers** ahora configuraremos el **proxy inverso** como el **balanceador de carga**.<br>
 ![alt text](./assets/practica2-4/image-1.png)
 
 Donde:

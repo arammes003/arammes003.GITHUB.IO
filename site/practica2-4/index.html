@@ -634,7 +634,7 @@
 <p>Accederemos a <code>http://balanceo</code> yu observaremos que las peticiones se van repartiendo entre el <code>webserver1</code> y <code>webserver2</code>.</p>
 <h2 id="3-configuraciones">3.- Configuraciones</h2>
 <p><strong>ATENCIÓN!</strong> Los sitios web configurados anteriormente no se van a utilizar, por ello, recomiendo desactivarlos de la carpeta <code>/etc/nginx/sites-enabled</code> con el comando <code>unlink nombre_archivo</code>. <strong>si no se hace esto, nos dará error en todas las prácticas restantes</strong>.</p>
-<p><strong>Webserver1</strong>
+<p><strong>Ejemplo en webserver1</strong>
 <img alt="alt text" src="../assets/practica2-4/image.png" /></p>
 <h3 id="31-nginx-webserver1">3.1.- Nginx Webserver1</h3>
 <p>El primer servidor será el servidor <strong>principal</strong> que hemos utilizado desde la primera práctica, es decir, el original.</p>
@@ -654,7 +654,7 @@
 <img alt="alt text" src="../assets/practica2-4/html2.png" />
 <img alt="alt text" src="../assets/practica2-4/conf2.png" /></p>
 <h3 id="33-nginx-proxy-inverso">3.3.- Nginx Proxy Inverso</h3>
-<p>Ya disponemos de los dos <strong>webservers</strong> ahora configuraremos el <strong>proxy inverso</strong> como el <strong>balanceador de carga</strong>
+<p>Ya disponemos de los dos <strong>webservers</strong> ahora configuraremos el <strong>proxy inverso</strong> como el <strong>balanceador de carga</strong>.<br>
 <img alt="alt text" src="../assets/practica2-4/image-1.png" /></p>
 <p>Donde:</p>
 <ul>

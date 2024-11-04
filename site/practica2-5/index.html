@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://mydomain.org/mysite/practica2-3/">
+        <link rel="canonical" href="https://mydomain.org/mysite/practica2-5/">
       
       
-        <link rel="prev" href="../practica2-2/">
+        <link rel="prev" href="../practica2-4/">
       
-      
-        <link rel="next" href="../practica2-4/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Práctica 2.3.- Proxy inverso con Nginx - Alfonso Ramírez Mestanza - DAW</title>
+        <title>Práctica2.5.- Proxy Inverso y Balanceo de carga con SSL en NGINX - Alfonso Ramírez Mestanza - DAW</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practica-23-proxy-inverso-con-nginx" class="md-skip">
+        <a href="#practica25-proxy-inverso-y-balanceo-de-carga-con-ssl-en-nginx" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Práctica 2.3.- Proxy inverso con Nginx
+              Práctica2.5.- Proxy Inverso y Balanceo de carga con SSL en NGINX
             
           </span>
         </div>
@@ -250,19 +248,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../practica2-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -271,7 +260,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -300,10 +288,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../practica2-5/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica2.5.- Proxy Inverso y Balanceo de carga con SSL en NGINX
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -312,6 +320,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Tarea
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-creacion-del-certificado-autofirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.- Creación del certificado autofirmado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-configuracion-ssl-en-el-proxy-inverso" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.- Configuración SSL en el proxy inverso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -336,6 +400,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Tarea
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-creacion-del-certificado-autofirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.- Creación del certificado autofirmado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-configuracion-ssl-en-el-proxy-inverso" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.- Configuración SSL en el proxy inverso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -349,80 +457,85 @@
                   
 
 
-<h1 id="practica-23-proxy-inverso-con-nginx">Práctica 2.3.- Proxy inverso con Nginx</h1>
-<h1 id="1-configuracion-nginx">1. Configuración Nginx</h1>
-<h2 id="11-servidor-web">1.1.- Servidor web</h2>
-<p>El primer paso para la realización de esta práctica es clonar la máquina <strong>Debian</strong> en la que tenemos instalado nuestro servidor de <strong>Nginx</strong>.</p>
+<h1 id="practica25-proxy-inverso-y-balanceo-de-carga-con-ssl-en-nginx">Práctica2.5.- Proxy Inverso y Balanceo de carga con SSL en NGINX</h1>
+<h2 id="1-introduccion">1.- Introducción</h2>
+<p>En esta práctica usaremos nuestro <strong>balanceador</strong> de la práctica anterior y además le añadiremos cifrado SSL para mayor seguridad y así, asegurarnos que, cuando entramos en el sitio web nos presente un <strong>cértificado digital</strong> para asegurarnos que es quien dice ser.</p>
+<p><center><img alt="alt text" src="../assets/practica2-5/image-1.png" /></center></p>
+<h2 id="2-tarea">2.- Tarea</h2>
+<h2 id="21-creacion-del-certificado-autofirmado">2.1.- Creación del certificado autofirmado</h2>
+<p>Para crear nuestro certificado y las claves asociadas a ellos, tanto privada como pública y para ello empezamos creando el directorio <code>/etc/nginx/ssl</code>.</p>
+<p><center><img alt="alt text" src="../assets/practica2-5/image.png" /></center></p>
+<p>Cuando ya hayamos creado el directorio crearemos una clave pública, donde:</p>
 <ul>
-<li>Un servidor servirá los sitios webs que ya hemos configurado anteriormente.</li>
-<li>El nuevo servidor estará configurado como <strong><code>proxy inverso</code></strong>.</li>
-<li>Realizaremos las peticiones HTTP desde nuestra máquina física hacia el <strong>proxy clonado</strong>, que este nos redigirá hasta el servidor web original.</li>
+<li><code>openssl</code> es la herramienta para crear y administrar certificados y claves.</li>
+<li><code>-req</code> genera una solicitud de certificados y solicitudes de firma.</li>
+<li><code>-x509</code> modifica el subcomando anterior diciendole que queremos crear un certificado autofirmado en lugar de una solicitud de firma.</li>
+<li><code>-nodes</code> omite la opción de asegurar nuestro certificado con contraseña.</li>
+<li><code>-days 365</code> establece el tiempo durante el cuál el certificado será válido.</li>
+<li><code>-newkey rsa: 2048</code> especifica que queremos generar un nuevo certificado y una nueva clave al mismo tiempo.</li>
+<li><code>-keyout</code> este parámetro le dice a OpenSSL dónde colocar el archivo de clave privada generado que estamos creando.</li>
+<li><code>-out</code> dice dónde se colocará el certificado que estamos creando.</li>
 </ul>
-<p><strong>IMPORTANTE</strong> A la hora de clonar la máquina es importante <code>Generar nuevas direcciones MAC</code>, para poder comunicarnos entre las máquinas.
-<img alt="alt text" src="../assets/practica2-3/image.png" />
-Después de clonar la máquina, la iniciaremos y haremos los siguientes cambios.</p>
-<ol>
-<li>
-<p>Cambiar el nombre de nuestra web por <code>webserver</code>, esto implica estos cambios:</p>
-</li>
-<li>
-<p>Cambiar el nombre del archivo de configuración de sitios disponibles en <strong>Nginx</strong>, para ello usamos <code>sudo mv /etc/nginx/sites-available/nombre_servidor /etc/nginx/sites-available/webserver</code>.
-  <img alt="alt text" src="../assets/practica2-3/image-1.png" />
-  Tras esto, accederemos al fichero de configuración con <code>sudo nano /etc/nginx/sites-available/webserver</code> para seguir realizando cambios.
-  <img alt="alt text" src="../assets/practica2-3/image-2.png" /></p>
-</li>
-<li>
-<p>Eliminamos el enlace simbólico con el comando <code>unlink nombre_del_link</code> dentro de la carpeta <code>sites_enabled</code> y creamos el nuevo enlace para el nuevo nombre de archivo con <code>sudo ln /etc/nginx/sites-available/webserver /etc/nginx/sites-enabled/</code>.
-  <img alt="alt text" src="../assets/practica2-3/image-3.png" /></p>
-</li>
-<li>
-<p>Ahora volvemos a configurar el archivo de configuración y cambiamos el puerto de escucha del <code>80</code> al <code>8080</code>.
-    <img alt="alt text" src="../assets/practica2-3/image-20.png" /></p>
-</li>
-<li>
-<p>Reiniciamos <strong>Nginx</strong> con <code>sudo systemctl restart nginx</code>, si no aparece ningún mensaje significa que la configuración esta correcta.
-    <img alt="alt text" src="../assets/practica2-3/image-5.png" /></p>
-</li>
-</ol>
-<h2 id="12-proxy-inverso">1.2.- Proxy inverso</h2>
-<p>Iniciamos nuestra otra máquina <strong>Debian</strong>, es decir, donde configuraremos el proxy.
-Para ello creamos un archivo de configuración en <code>sites-available</code> con el nombre <code>ejemplo_proxy</code> con <code>sudo nano /etc/nginx/sites-available/ejemplo_proxy</code>
-<img alt="alt text" src="../assets/practica2-3/image-4.png" /></p>
-<p>Y ponemos la siguiente configuración:
-<img alt="alt text" src="../assets/practica2-3/image-7.png" /></p>
+<p><img alt="alt text" src="../assets/practica2-5/image-3.png" /></p>
+<p>En el apartado <strong>Organizational Unit Name</strong>, podremos <code>2DAW - DEAW - VuestroNombre</code>.</p>
+<h2 id="22-configuracion-ssl-en-el-proxy-inverso">2.2.- Configuración SSL en el proxy inverso</h2>
+<p>Modificaremos nuestro archivo que hizo de <code>balanceo</code> en la práctica anterior, es aquí donde realizaremos la configuración para que el sitio web se conecte mediante SSL.</p>
+<p>Dentro del bloque <code>server {...}</code> cambiaremos el puerto de escucha <code>listen 80</code> por lo siguiente:</p>
+<p><img alt="alt text" src="../assets/practica2-5/image-2.png" /></p>
+<h1 id="3-comprobaciones">3.- Comprobaciones</h1>
+<p>Cuando accedamos ahora a nuestro sitio web <code>https://balanceo.com</code>, nos deberá saltar un aviso de seguridad debido a que nuestro certificado es autofirmado.</p>
+<p><img alt="alt text" src="../assets/practica2-5/image-4.png" /></p>
+<p>Clicaremos en avanzado y avanzaremos al sitio web, seguidamente veremos como carga nuestro HTML. Lo siguiente que tendremos que hacer para verificar nuestro certificado es clicar en el candado.</p>
+<p><center><img alt="alt text" src="../assets/practica2-5/image-5.png" /></center></p>
+<p>Después clicamos en <code>Conexión No Segura</code> y después en <code>Más Información.</code>:</p>
+<p><center><img alt="alt text" src="../assets/practica2-5/image-6.png" /></center>
+<center><img alt="alt text" src="../assets/practica2-5/image-7.png" /></center></p>
+<p>Después se abre esta ventana y clicamos en <code>Ver Certificado</code>:</p>
+<p><img alt="alt text" src="../assets/practica2-5/image-9.png" /></p>
+<p>Y aquí podremos ver todos los detalles del certificado:</p>
+<p><img alt="alt text" src="../assets/practica2-5/image-8.png" /></p>
+<h3 id="si-ahora-intentais-acceder-a-httpbalanceo-deberiais-poder-acceder-comprobadlo-y-describid-que-pasa-y-por-que">Si ahora intentáis acceder a http://balanceo, ¿deberíais poder acceder? Comprobadlo y describid qué pasa y por qué.</h3>
+<p>Accederemos al sitio web por defecto de <strong>Nginx</strong>, ya que http trabaja en el puerto <code>80</code> y nosotros no tenemos un bloque creado que responda a esa petición.</p>
+<h1 id="4-redireccion-forzosa-a-https">4.- Redirección forzosa a HTTPS</h1>
+<p>Para redireccionar "forzosamente" una petición <strong>http</strong> a nuestro servidor <strong>https</strong>, crearemos un bloque <code>server {...}</code> adicional en nuestro archivo de configuración de <strong>balanceo</strong>:</p>
+<p><center><img alt="alt text" src="../assets/practica2-5/image-10.png" /></center></p>
+<p>Guardamos los cambios y ahora haremos un <code>sudo unlink /etc/nginx/sites-enabled/archivoBalanceo</code> y crearemos un nuevo enlace simbólico con <code>sudo ln /etc/nginx/sites-available/balanceo /etc/nginx/sites-enabled</code> y por último reiniciamos nuestro servicio de <strong>Nginx</strong>.</p>
+<p><img alt="alt text" src="../assets/practica2-5/image-11.png" /></p>
+<p>Haciendo esto, cuando accedamos a <code>http://balanceo.com</code>, automáticamente se redigirá a <code>https://balanceo.com</code>.</p>
+<h1 id="5-cuestiones-finales">5.- Cuestiones finales</h1>
+<h3 id="cuestion-1-hemos-configurado-nuestro-proxy-inverso-con-todo-lo-que-nos-hace-falta-pero-no-nos-funciona-y-da-un-error-del-tipo-this-site-cant-provide-a-secure-connection-err_ssl_protocol_error">Cuestión 1.- Hemos configurado nuestro proxy inverso con todo lo que nos hace falta pero no nos funciona y da un error del tipo This site can't provide a secure connection, ERR_SSL_PROTOCOL_ERROR.</h3>
+<p>Dentro de nuestro server block tenemos esto:</p>
+<pre><code>server {
+listen 443;
+ssl_certificate /etc/nginx/ssl/enrico-berlinguer/server.crt;
+ssl_certificate_key /etc/nginx/ssl/enrico-berlinguer/server.key;
+ssl_protocols TLSv1.3;
+ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+server_name enrico-berlinguer;
+access_log /var/log/nginx/https_access.log;
+
+    location / {
+        proxy_pass http://red-party;
+        }
+    }
+</code></pre>
+<h3 id="respuesta">Respuesta</h3>
+<p>El error se encuentra en el listen, que no está escuchando que sea ssl. Se arreglaría así: <br>
+server {<br>
+listen 443;<br>
+...<br>
+}</p>
+<h3 id="cuestion-2-imaginad-que-intentamos-acceder-a-nuestro-sitio-web-https-y-nos-encontramos-con-el-siguiente-error-investigad-que-esta-pasando-y-como-se-ha-de-solucionar">Cuestión 2.- Imaginad que intentamos acceder a nuestro sitio web HTTPS y nos encontramos con el siguiente error: Investigad qué está pasando y como se ha de solucionar.</h3>
+<p><img alt="alt text" src="../assets/practica2-5/image-12.png" /></p>
+<h3 id="respuesta_1">Respuesta</h3>
+<p>Esto significa que nuestro certificado SSL ha sido anulado. Para solucionarlo deberemos comprobar lo siguiente:<br></p>
 <ul>
-<li>En <code>listen</code>, ponemos el puerto que queremos escuchar.</li>
-<li>En <code>server_name</code>, ponemos el nombre de nuestro dominio al que queremos acceder en el proxy.</li>
-<li>En <code>proxy_pass</code>, ponemos la dirección IP de la máquina que tiene alojada el servidor y el puerto al que queremos reenviar.</li>
-<li>Por último creamos un link simbólico con:<br> <code>sudo ln /etc/nginx/sites-available/ejemplo-proxy /etc/nginx/sites-enabled/</code>
-  <img alt="alt text" src="../assets/practica2-3/image-8.png" /></li>
+<li>Verificar la validez del certificado.</li>
+<li>Reemplazar el certificado SSL.</li>
+<li>Reiniciar el servidor de Nginx.</li>
+<li>Verificar la configuración del certificado.</li>
+<li>Limpiar la caché del navegador.</li>
 </ul>
-<h1 id="2-comprobaciones">2.- Comprobaciones</h1>
-<p>Editamos nuestro fichero <code>hosts</code> para añadir el sitio <code>ejemplo-proxy.com</code>:
-<img alt="alt text" src="../assets/practica2-3/image-6.png" /></p>
-<p>Y ahora accedemos a nuestro sitio web mediante <code>ejemplo-proxy.com</code>, donde si todo va bien nos preguntará nuestro usuario y contraseña como en anteriores prácticas:
-<img alt="alt text" src="../assets/practica2-3/image-10.png" /></p>
-<p>Y accedemos a la consola mediante la tecla <strong>F12</strong>, al apartado de red y vemos lo siguiente:
-<img alt="alt text" src="../assets/practica2-3/image-11.png" /></p>
-<p>Aquí vemos que la respuesta de la petición es un código <code>200 OK</code>, también vemos las cabeceras que se incluyen en la petición del método <strong>GET</strong> y en la respuesta de la petición.</p>
-<p>Ahora comprobamos los access.log en los dos servidores:<br>
-<strong>EJEMPLO_PROXY</strong>
-<img alt="alt text" src="../assets/practica2-3/image-12.png" />
-<img alt="alt text" src="../assets/practica2-3/image-13.png" /></p>
-<p><strong>WebServer</strong>
-<img alt="alt text" src="../assets/practica2-3/image-14.png" /></p>
-<h1 id="3-anadiendo-cabeceras">3.- Añadiendo cabeceras</h1>
-<p>Además de haber mirado los logs, vamos a demostrar aún de forma más clara que la petición está pasando por el proxy inverso y que está llegando al servidor web y que vuelve por el mismo camino.</p>
-<p>Para ello, añadiremos una cabecera en el fichero de configuración del <strong>Proxy inverso</strong> dentro de <code>location / {...}</code> añadimos esta directiva: <code>add_header Host nombre_del_host</code>, quedaría así:
-<img alt="alt text" src="../assets/practica2-3/image-9.png" /></p>
-<p>El siguiente paso será reiniciar <strong>nginx</strong>:
-<img alt="alt text" src="../assets/practica2-3/image-16.png" /></p>
-<p>Ahora comprobamos que podemos acceder al sitio web sin problemas y buscamos que el proxy inverso ha añadido la cabecera a la respuesta:
-<img alt="alt text" src="../assets/practica2-3/image-18.png" /></p>
-<p>Y ahora hacemos el mismo paso en nuestro <strong>WebServer</strong>. Si todo esta correcto, aparecerán ambas cabeceras.
-<img alt="alt text" src="../assets/practica2-3/image-19.png" /></p>
-<p><strong>IMPORTANTE</strong> Para realizar estas comprobaciones es imprescindible tener marcado el <strong>checkbox</strong> de <code>Desactivar caché</code>, ya que si no se marca esta opción la página se guardará en la memoria caché del navegador y no recibiréis la respuesta del servidor.
-<img alt="alt text" src="../assets/practica2-3/image-17.png" /></p>
 
 
 

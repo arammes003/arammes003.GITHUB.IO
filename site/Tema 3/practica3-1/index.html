@@ -1,0 +1,767 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mydomain.org/mysite/Tema%203/practica3-1/">
+      
+      
+        <link rel="prev" href="../../practica2-5/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Práctica 3.1.- Instalación de Tomcat - Alfonso Ramírez Mestanza - DAW</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-31-instalacion-de-tomcat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Alfonso Ramírez Mestanza - DAW" class="md-header__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alfonso Ramírez Mestanza - DAW
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica 3.1.- Instalación de Tomcat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alfonso Ramírez Mestanza - DAW" class="md-nav__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Alfonso Ramírez Mestanza - DAW
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practica 2.1 - Instalación y configuración de un servidor web Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.2 - Autenticación en Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.3.- Proxy inverso con Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.4.- Balanceo de carga con proxy inverso en Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica2.5.- Proxy Inverso y Balanceo de carga con SSL en NGINX
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica 3.1.- Instalación de Tomcat
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.1.- Instalación de Tomcat
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalacion-de-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Instalación de Tomcat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-despliegue-manual-mediante-la-gui-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Despliegue manual mediante la GUI de administración
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-despliegue-con-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.- Despliegue con Maven
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.- Despliegue con Maven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-configuracion-de-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.- Configuración de Maven
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cuestiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.- Cuestiones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.- Cuestiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-habeis-visto-que-los-archivos-de-configuracion-que-hemos-tocado-contienen-contrasenas-en-texto-plano-por-lo-que-cualquiera-con-acceso-a-ellos-obtendria-las-credenciales-de-nuestras-herramientas-en-principio-esto-representa-un-gran-riesgo-de-seguridad-sabrias-razonar-o-averiguar-por-que-esto-esta-disenado-de-esta-forma" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.- Habéis visto que los archivos de configuración que hemos tocado contienen contraseñas en texto plano, por lo que cualquiera con acceso a ellos obtendría las credenciales de nuestras herramientas. En principio esto representa un gran riesgo de seguridad, ¿sabrías razonar o averigüar por qué esto está diseñado de esta forma?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalacion-de-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Instalación de Tomcat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-despliegue-manual-mediante-la-gui-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Despliegue manual mediante la GUI de administración
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-despliegue-con-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.- Despliegue con Maven
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.- Despliegue con Maven">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-configuracion-de-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.- Configuración de Maven
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cuestiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.- Cuestiones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.- Cuestiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-habeis-visto-que-los-archivos-de-configuracion-que-hemos-tocado-contienen-contrasenas-en-texto-plano-por-lo-que-cualquiera-con-acceso-a-ellos-obtendria-las-credenciales-de-nuestras-herramientas-en-principio-esto-representa-un-gran-riesgo-de-seguridad-sabrias-razonar-o-averiguar-por-que-esto-esta-disenado-de-esta-forma" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.- Habéis visto que los archivos de configuración que hemos tocado contienen contraseñas en texto plano, por lo que cualquiera con acceso a ellos obtendría las credenciales de nuestras herramientas. En principio esto representa un gran riesgo de seguridad, ¿sabrías razonar o averigüar por qué esto está diseñado de esta forma?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="practica-31-instalacion-de-tomcat">Práctica 3.1.- Instalación de Tomcat</h1>
+<h2 id="1-instalacion-de-tomcat">1.- Instalación de Tomcat</h2>
+<p>El primer paso para instalar <strong>Tomcat</strong> será abrir el puerto por defecto usando el comando:<br>
+<code>sudo ufw allow 8080</code>.<br>
+<img alt="alt text" src="../assets/practica3.1/image-2.png" /></p>
+<p>Después ejecutamos un <code>sudo apt update</code> para actualizar los paquetes.<br>
+<img alt="alt text" src="../assets/practica3.1/image-3.png" /></p>
+<p>El siguiente paso será instalar Java mediante el comando:<br>
+<code>sudo apt install default-jre</code>.<br>
+<img alt="alt text" src="../assets/practica3.1/1.png" /></p>
+<p>Verificamos la versión instalada de java con <code>java -version</code>.<br>
+<img alt="alt text" src="../assets/practica3.1/2.png" /></p>
+<p>Ahora instalamos <strong>Apache Tomcat</strong> y el <strong>Tomcat-admin</strong> a través del comando<br>
+<code>sudo apt install tomcat10 tomcat10-admin</code>.<br>
+<img alt="alt text" src="../assets/practica3.1/3.png" /></p>
+<p>Tras instalar <strong>Tomcat</strong>, modificaremos el archivo <strong>tomcat_users.xml</strong> con el comando: <br>
+<code>sudo nano /etc/tomcat10/tomcat_users.xml</code> y deberemos añadir: <br></p>
+<pre><code>&lt;role username=&quot;manager-gui&gt; /&gt;
+&lt;user username=&quot;manager&quot; password=&quot;TuContraseña&quot; roles=&quot;manager-gui /&gt;
+</code></pre>
+<p>Tras añadirlo en nuestro fichero, el archivo quedará de la siguiente forma:<br>
+<img alt="alt text" src="../assets/practica3.1/4.png" /></p>
+<p>Ahora que tomcat ya está instalado y nuestro usuario <strong>manager-gui</strong> creado, comprobamos que esta instalado correctamente a través de los comandos:<br>
+<code>sudo systemctl start tomcat10</code><br>
+<code>sudo systemctl status tomcat10</code><br>
+<img alt="alt text" src="../assets/practica3.1/5.png" /></p>
+<p>Si todo ha ido bien, accedemos en el navegador a la dirección <code>localhost:8080/manager/html</code>, donde debe aparecernos algo así:<br>
+<img alt="alt text" src="../assets/practica3.1/image-11.png" /></p>
+<p>Al iniciar sesión, deberá aparecernos esta pantalla.<br>
+<img alt="alt text" src="../assets/practica3.1/image-12.png" /></p>
+<h2 id="2-despliegue-manual-mediante-la-gui-de-administracion">2.- Despliegue manual mediante la GUI de administración</h2>
+<p>Ahora vamos a realizar un despliegue de una aplicación <strong>.WAR</strong>, para ello:</p>
+<ol>
+<li>Iniciamos sesión con el usuario previamente creado.</li>
+<li>Buscamos el apartado que nos permite desplegar una aplicación:<br>
+   <img alt="alt text" src="../assets/practica3.1/image.png" /></li>
+<li>Buscamos la sección que nos permite desplegar un <strong>WAR</strong> manualmente y seleccionamos nuestro archivo. En mi caso el siguiente archivo: https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/<br>
+   <img alt="alt text" src="../assets/practica3.1/image-14.png" /></li>
+<li>Por último accedemos a <code>localhost:8080/sample</code> y veremos el contenido de nuestro <strong>.war</strong> y se vería algo así:<br>
+   <img alt="alt text" src="../assets/practica3.1/image-17.png" /></li>
+</ol>
+<h2 id="3-despliegue-con-maven">3.- Despliegue con Maven</h2>
+<p>Ahora desplegaremos una aplicación realizada con <strong>Maven</strong>, para ello deberemos:</p>
+<ol>
+<li>
+<p>Actualizar los repositorios con <code>sudo apt update</code>.<br>
+   <img alt="alt text" src="../assets/practica3.1/image-18.png" /></p>
+</li>
+<li>
+<p>Instalamos <strong>Maven</strong> con <code>sudo apt install maven</code>.<br>
+   <img alt="alt text" src="../assets/practica3.1/6.png" /></p>
+</li>
+<li>
+<p>xxComprobamos que <strong>Maven</strong> se ha instalado correctamente viendo la versión instalada con el comando <code>mvn --v</code>.<br>
+   <img alt="alt text" src="../assets/practica3.1/image-20.png" /></p>
+</li>
+</ol>
+<h3 id="31-configuracion-de-maven">3.1.- Configuración de Maven</h3>
+<ol>
+<li>
+<p>Por temas de seguridad, deberemos tener 2 usuarios, uno que tenga el rol de <code>manager-script</code> y otro que tenga <code>manager-gui</code>. Para ello, modificaremos el archivo de usuarios de <strong>Tomcat</strong> con <br>
+   <code>sudo nano /etc/tomcat10/tomcat-users.xml</code>.<br>
+   <img alt="alt text" src="../assets/practica3.1/image-22.png" /></p>
+</li>
+<li>
+<p>Añadimos un nuevo <strong>rol</strong> para <strong>manager-script</strong> y el nuevo usuario, donde le asignaremos una contraseña que nosotros queramos.<br>
+   <img alt="alt text" src="../assets/practica3.1/7.png" />
+   Guardamos los cambios con <code>Ctrl + O</code> y salimos con <code>Ctrl + X</code>.</p>
+</li>
+<li>
+<p>Ahora editamos el archivo <code>etc/maven/settings.xml</code> para indicarle a Maven, un identificador para el servidor sobre el que vamos a desplegar.<br>
+   <img alt="alt text" src="../assets/practica3.1/8.png" /></p>
+</li>
+<li>
+<p>Modificamos el <strong>POM</strong> del proyecto para que haga referencia a que el despliegue se realice con el plugin de <strong>Maven</strong>. Para esto, clonaremos un repositorio de github con el comando <br>
+   <code>git clone https://github.com/cameronmcnz/rock-paper-scissors.git</code><br>
+   <img alt="alt text" src="../assets/practica3.1/image-25.png" /></p>
+</li>
+<li>
+<p>Nos siutuamos dentro del proyecto que hemos creado con:<br>
+   <code>cd rock-paper-scissors</code><br>
+   <img alt="alt text" src="../assets/practica3.1/image-26.png" /></p>
+</li>
+<li>
+<p>Cambiamos de rama: <br>
+   <code>git checkout patch-1</code><br>
+   <img alt="alt text" src="../assets/practica3.1/image-27.png" /></p>
+</li>
+<li>
+<p>Tras esto, editamos el archivo <strong>POM</strong> con el comando <br>
+   <code>sudo nano pom.xml</code>.<br>
+   <img alt="alt text" src="../assets/practica3.1/image-28.png" /></p>
+</li>
+<li>
+<p>Añadimos el siguiente bloque<br></p>
+</li>
+</ol>
+<pre><code>        &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.2&lt;/version&gt;
+        &lt;configuration&gt;
+            &lt;url&gt;http://localhost:8080/manager/text&lt;/url&gt;
+            &lt;server&gt;IdDeTuServer&lt;/server&gt;
+            &lt;path&gt;/myapp&lt;/path&gt;
+        &lt;/configuration&gt;
+        &lt;/plugin&gt;
+</code></pre>
+<ol>
+<li>
+<p>Quedaría de la siguiente forma:<br>
+   <img alt="alt text" src="../assets/practica3.1/9.png" /></p>
+</li>
+<li>
+<p>Hacemos un <strong>deploy</strong> con el comando <br>
+    <code>mvn tomcat7:deploy</code><br>
+    <img alt="alt text" src="../assets/practica3.1/11.png" /></p>
+<p>Si todo ha ido bien, nos aparecerá un mensaje de color <strong>verde</strong> que pondrá <strong>Build Success</strong>, indicandonos que se ha desplegado correctamente:<br>
+<img alt="alt text" src="../assets/practica3.1/12.png" /></p>
+</li>
+<li>
+<p>Por último, accedemos a nuestro navegador a la dirección <code>localhost:8080/tuPath</code>, donde <strong>tuPath</strong> es el <strong>path</strong> que hayas configurado en el <strong>pom.xml</strong> del proyecto, y deberiamos ver lo siguiente:<br>
+    <img alt="alt text" src="../assets/practica3.1/13.png" /></p>
+</li>
+</ol>
+<h2 id="4-cuestiones">4.- Cuestiones</h2>
+<h3 id="41-habeis-visto-que-los-archivos-de-configuracion-que-hemos-tocado-contienen-contrasenas-en-texto-plano-por-lo-que-cualquiera-con-acceso-a-ellos-obtendria-las-credenciales-de-nuestras-herramientas-en-principio-esto-representa-un-gran-riesgo-de-seguridad-sabrias-razonar-o-averiguar-por-que-esto-esta-disenado-de-esta-forma">4.1.- Habéis visto que los archivos de configuración que hemos tocado contienen contraseñas en texto plano, por lo que cualquiera con acceso a ellos obtendría las credenciales de nuestras herramientas.<br> En principio esto representa un gran riesgo de seguridad, ¿sabrías razonar o averigüar por qué esto está diseñado de esta forma?</h3>
+<p>Esta diseñado de esta manera por simplicidad y compatibilidad ya que <strong>Tomcat</strong> no incluye por defecto un sistema que cifre o gestione las contraseñas. Esto es un gran problema de seguridad ya que cualquier persona podría acceder a los datos sin estar autorizadas.
+Una solución para cifrar las contraseñas y resolver este problema de seguridad sería a través del la herramienta <code>Apache Tomcat Jasypt</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

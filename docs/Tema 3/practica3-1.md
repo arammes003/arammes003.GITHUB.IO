@@ -126,7 +126,7 @@ Ahora desplegaremos una aplicación realizada con **Maven**, para ello deberemos
 
 ## 4.- Cuestiones
 
-### 4.1.- Habéis visto que los archivos de configuración que hemos tocado contienen contraseñas en texto plano, por lo que cualquiera con acceso a ellos obtendría las credenciales de nuestras herramientas.<br> En principio esto representa un gran riesgo de seguridad, ¿sabrías razonar o averigüar por qué esto está diseñado de esta forma?
+1. Habéis visto que los archivos de configuración que hemos tocado contienen contraseñas en texto plano, por lo que cualquiera con acceso a ellos obtendría las credenciales de nuestras herramientas.<br> En principio esto representa un gran riesgo de seguridad, ¿sabrías razonar o averigüar por qué esto está diseñado de esta forma?
 
 Esta diseñado de esta manera por simplicidad y compatibilidad ya que **Tomcat** no incluye por defecto un sistema que cifre o gestione las contraseñas. Esto es un gran problema de seguridad ya que cualquier persona podría acceder a los datos sin estar autorizadas.
 Una solución para cifrar las contraseñas y resolver este problema de seguridad sería a través del la herramienta `Apache Tomcat Jasypt`.

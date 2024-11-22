@@ -143,7 +143,75 @@ sudo systemctl status nginx
 ![alt text](./assets/practica3.3/image-28.png)
 
 # 3.- Ejercicio
+Repite todo el proceso con la aplicación del siguiente repositorio: https://github.com/raul-profesor/Practica-3.5.
 
+Clonamos el repositorio en nuestro direectorio `/var/www` con el comando `sudo git clone https://github.com/raul-profesor/Practica-3.5`.<br>
+![alt text](./assets/practica3.3/ejercicio/image.png)
+
+Cambiamos el dueño a nuestro usuario con el comando `sudo chown -R USUARIO:www-data /var/www/nombreAplicacion`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-1.png)
+
+Establecemos los permisos adecuados con `chmod -R 775 /var/www/nombreAplicacion`. <br>
+![alt text](./assets/practica3.3/ejercicio/image-2.png)
+
+Creamos un archivo oculto `.env` dentro del directorio de nuestra aplicación con `touch .env`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-3.png)
+
+Editamos el archivo con `sudo nano .env` y después vemos los cambios con `cat .env`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-4.png)
+![alt text](./assets/practica3.3/ejercicio/image-5.png)
+
+Ahora iniciamos nuestro entorno virtual con `pipenv shell` para que cargue las variables de entorno desde el fichero `.env`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-6.png)
+
+Ahora instalamos las dependencias  con `pipenv install -r requirements.txt`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-7.png)
+
+Instalamos `gunicorn` con el comando `pipenv install flask gunicorn`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-9.png)
+
+Creamos un archivo `wsgi.py` que contendrá lo siguiente:<br>
+![alt text](./assets/practica3.3/ejercicio/image-13.png)
+
+Por último, corremos nuestra aplicación con `flask run --host '0.0.0.0'`;
+![alt text](./assets/practica3.3/ejercicio/image-8.png)
+
+Y comprobamos que podemos acceder mediante `gunicorn --workers 4 --bind 0.0.0.0:8000 wsgi:app`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-10.png)
+![alt text](./assets/practica3.3/ejercicio/image-20.png)
+
+Usamos el comando `which gunicorn` para poder configurar más tarde un servicio.<br>
+![alt text](./assets/practica3.3/ejercicio/image-11.png)
+
+Ya podemos salir del entorno virtual con `deactivate`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-21.png)
+
+# 3.1.- Nginx
+Ahora vamos a desplegarla en **Nginx**, para ello:
+
+1. Creamos un archivo para que `systemd` corra **Gunicorn** como un servicio más: <br>
+![alt text](./assets/practica3.3/ejercicio/image-12.png)
+
+2. Ahora habilitamos el servicio con `systemctl enable nombreServicio` y lo iniciamos con `systemctl start nombreServicio`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-19.png)
+
+3. Creamos un archivo donde configuraremos el sitio web de **Nginx** con `sudo nano /etc/nginx/sites-available/nombreAplicacion`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-14.png)
+
+4. Creamos un enlace simbólico con `sudo ln -s /etc/nginx/sites-available/nombreAplicacion /etc/nginx/sites-enabled/`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-15.png)
+
+5. Nos aseguramos que se ha creado con `ls -l /etc/nginx/sites-enabled | grep nombreAplicacion`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-16.png)
+
+6. Comprobamos que **Nginx** no contiene errores con `nginx -t`, lo reiniciamos con `sudo systemctl restart nginx` y vemos su estado con `sudo systemctl status nginx`. <br>
+![alt text](./assets/practica3.3/ejercicio/image-17.png)
+
+7. Lo último que tendremos que hacer es editar el archivo `/etc/hosts` para asociar la IP de la máquina a nuestro `server_name`.<br>
+![alt text](./assets/practica3.3/ejercicio/image-18.png)
+
+8. Accedemos al navegador y si todo ha ido bien veremos el siguiente contenido:<br>
+![alt text](./assets/practica3.3/ejercicio/image-22.png)
 # 4.- Cuestiones
 
 ## 4.1.- Busca, lee, entiende y explica qué es y para que sirve un servidor WSGI.

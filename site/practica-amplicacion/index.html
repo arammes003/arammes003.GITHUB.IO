@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://mydomain.org/mysite/practica2-3/">
+        <link rel="canonical" href="https://mydomain.org/mysite/practica-amplicacion/">
       
       
-        <link rel="prev" href="../practica2-2/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../practica2-4/">
+        <link rel="next" href="../practica2-1/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Práctica 2.3.- Proxy inverso con Nginx - Alfonso Ramírez Mestanza - DAW</title>
+        <title>Práctica de Amplicación.- Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario - Alfonso Ramírez Mestanza - DAW</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practica-23-proxy-inverso-con-nginx" class="md-skip">
+        <a href="#practica-de-amplicacion-configuracion-de-un-servidor-nginx-con-hosts-virtuales-y-directorios-de-usuario" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Práctica 2.3.- Proxy inverso con Nginx
+              Práctica de Amplicación.- Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
             
           </span>
         </div>
@@ -210,10 +210,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../practica-amplicacion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -222,6 +231,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -270,19 +280,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../practica2-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -291,7 +292,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -474,80 +474,114 @@
                   
 
 
-<h1 id="practica-23-proxy-inverso-con-nginx">Práctica 2.3.- Proxy inverso con Nginx</h1>
-<h1 id="1-configuracion-nginx">1. Configuración Nginx</h1>
-<h2 id="11-servidor-web">1.1.- Servidor web</h2>
-<p>El primer paso para la realización de esta práctica es clonar la máquina <strong>Debian</strong> en la que tenemos instalado nuestro servidor de <strong>Nginx</strong>.</p>
-<ul>
-<li>Un servidor servirá los sitios webs que ya hemos configurado anteriormente.</li>
-<li>El nuevo servidor estará configurado como <strong><code>proxy inverso</code></strong>.</li>
-<li>Realizaremos las peticiones HTTP desde nuestra máquina física hacia el <strong>proxy clonado</strong>, que este nos redigirá hasta el servidor web original.</li>
-</ul>
-<p><strong>IMPORTANTE</strong> A la hora de clonar la máquina es importante <code>Generar nuevas direcciones MAC</code>, para poder comunicarnos entre las máquinas.
-<img alt="alt text" src="../assets/practica2-3/image.png" />
-Después de clonar la máquina, la iniciaremos y haremos los siguientes cambios.</p>
+<h1 id="practica-de-amplicacion-configuracion-de-un-servidor-nginx-con-hosts-virtuales-y-directorios-de-usuario">Práctica de Amplicación.- Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario</h1>
+<p>El fin de esta práctica es configurar un servidor Nginx que utilice hosts virtuales para alojar múltiples sitios web en un mismo servidor y que a su vez, cada host virtual apunte al directorio <strong>public_html</strong> de distintos usuarios del sistema operativo Debian. De esta manera, cada usuario podrá gestionar su propio sitio web desde su carpeta personal.</p>
+<p>Antes de empezar a seguir los pasos para esta configuración, nos conectaremos mediante <code>SSH</code> desde nuestra máquina a la máquina Debian. Para ello usamos el comando <code>ssh nombreUsuario@direccionIP</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image1.png" /></p>
+<h1 id="1-instalacion-de-nginx">1.- Instalación de Nginx</h1>
+<p>El primer paso para instalar <strong>nginx</strong> es actualizar los repositorios del sistema mediante <code>sudo apt update</code> y <code>sudo apt upgrade</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image.png" /></p>
+<p>Para instalar nginx usamos el comando <code>sudo apt install nginx -y</code>. <br>
+<img alt="alt text" src="../assets/amplicacion/image-1.png" /></p>
+<p>Iniciamos el servicio con <code>sudo systemctl start nginx</code> y despues verificamos que esté funcionando correctamente con <code>sudo systemctl status nginx</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-2.png" /></p>
+<p>Si esta todo bien, veremos un mensaje en color <strong>verde</strong>, que pondra <code>active(running)</code>.</p>
+<h1 id="2-creacion-de-usuarios-del-sistema">2.- Creación de usuarios del sistema.</h1>
+<p>En este paso, crearemos dos usuarios con contraseñas seguras con el comando <code>sudo adduser nombreUsuario</code>, en mi caso sera <code>usuario</code> y <code>usuario2</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-3.png" />
+<img alt="alt text" src="../assets/amplicacion/image-4.png" /></p>
+<h1 id="3-estructura-de-carpetas-y-archivos">3.- Estructura de carpetas y Archivos.</h1>
 <ol>
 <li>
-<p>Cambiar el nombre de nuestra web por <code>webserver</code>, esto implica estos cambios:</p>
+<p>El primer paso será crear la carpeta <code>public_html</code> en los directorios de cada usuario con <code>sudo mkdir /home/nombreUsuario/public_html</code>.<br>
+   <img alt="alt text" src="../assets/amplicacion/image-5.png" /></p>
 </li>
 <li>
-<p>Cambiar el nombre del archivo de configuración de sitios disponibles en <strong>Nginx</strong>, para ello usamos <code>sudo mv /etc/nginx/sites-available/nombre_servidor /etc/nginx/sites-available/webserver</code>.
-  <img alt="alt text" src="../assets/practica2-3/image-1.png" />
-  Tras esto, accederemos al fichero de configuración con <code>sudo nano /etc/nginx/sites-available/webserver</code> para seguir realizando cambios.
-  <img alt="alt text" src="../assets/practica2-3/image-2.png" /></p>
+<p>Después, asignamos los permisos a cada usuario sobre su directorio con el comando <code>sudo chown -R nombreUsuario:nombreUsuario /home/nombreUsuario/public_html</code> y <code>sudo chmod 755 /home/nombreUsuario</code>. Este proceso hay que hacerlo con ambos usuarios.<br>
+   <img alt="alt text" src="../assets/amplicacion/image-6.png" /></p>
 </li>
 <li>
-<p>Eliminamos el enlace simbólico con el comando <code>unlink nombre_del_link</code> dentro de la carpeta <code>sites_enabled</code> y creamos el nuevo enlace para el nuevo nombre de archivo con <code>sudo ln /etc/nginx/sites-available/webserver /etc/nginx/sites-enabled/</code>.
-  <img alt="alt text" src="../assets/practica2-3/image-3.png" /></p>
-</li>
-<li>
-<p>Ahora volvemos a configurar el archivo de configuración y cambiamos el puerto de escucha del <code>80</code> al <code>8080</code>.
-    <img alt="alt text" src="../assets/practica2-3/image-20.png" /></p>
-</li>
-<li>
-<p>Reiniciamos <strong>Nginx</strong> con <code>sudo systemctl restart nginx</code>, si no aparece ningún mensaje significa que la configuración esta correcta.
-    <img alt="alt text" src="../assets/practica2-3/image-5.png" /></p>
+<p>Por último, creamos una página web de prueba en la carpeta <code>public_html</code> de cada usuario. Para ello, cambiamos de usuario con <code>su nombreUsuario</code> y creamos el archivo de la página web con el comando <code>echo "&lt;h1&gt;Bienvenido al sitio de nombreUsuario&lt;/h1&gt;" &gt; /home/nombreUsuario/public_html/index.html</code>. Este proceso lo repetimos con ambos usuarios.
+   <img alt="alt text" src="../assets/amplicacion/image-7.png" />
+   <img alt="alt text" src="../assets/amplicacion/image-8.png" /></p>
 </li>
 </ol>
-<h2 id="12-proxy-inverso">1.2.- Proxy inverso</h2>
-<p>Iniciamos nuestra otra máquina <strong>Debian</strong>, es decir, donde configuraremos el proxy.
-Para ello creamos un archivo de configuración en <code>sites-available</code> con el nombre <code>ejemplo_proxy</code> con <code>sudo nano /etc/nginx/sites-available/ejemplo_proxy</code>
-<img alt="alt text" src="../assets/practica2-3/image-4.png" /></p>
-<p>Y ponemos la siguiente configuración:
-<img alt="alt text" src="../assets/practica2-3/image-7.png" /></p>
-<ul>
-<li>En <code>listen</code>, ponemos el puerto que queremos escuchar.</li>
-<li>En <code>server_name</code>, ponemos el nombre de nuestro dominio al que queremos acceder en el proxy.</li>
-<li>En <code>proxy_pass</code>, ponemos la dirección IP de la máquina que tiene alojada el servidor y el puerto al que queremos reenviar.</li>
-<li>Por último creamos un link simbólico con:<br> <code>sudo ln /etc/nginx/sites-available/ejemplo-proxy /etc/nginx/sites-enabled/</code>
-  <img alt="alt text" src="../assets/practica2-3/image-8.png" /></li>
-</ul>
-<h1 id="2-comprobaciones">2.- Comprobaciones</h1>
-<p>Editamos nuestro fichero <code>hosts</code> para añadir el sitio <code>ejemplo-proxy.com</code>:
-<img alt="alt text" src="../assets/practica2-3/image-6.png" /></p>
-<p>Y ahora accedemos a nuestro sitio web mediante <code>ejemplo-proxy.com</code>, donde si todo va bien nos preguntará nuestro usuario y contraseña como en anteriores prácticas:
-<img alt="alt text" src="../assets/practica2-3/image-10.png" /></p>
-<p>Y accedemos a la consola mediante la tecla <strong>F12</strong>, al apartado de red y vemos lo siguiente:
-<img alt="alt text" src="../assets/practica2-3/image-11.png" /></p>
-<p>Aquí vemos que la respuesta de la petición es un código <code>200 OK</code>, también vemos las cabeceras que se incluyen en la petición del método <strong>GET</strong> y en la respuesta de la petición.</p>
-<p>Ahora comprobamos los access.log en los dos servidores:<br>
-<strong>EJEMPLO_PROXY</strong>
-<img alt="alt text" src="../assets/practica2-3/image-12.png" />
-<img alt="alt text" src="../assets/practica2-3/image-13.png" /></p>
-<p><strong>WebServer</strong>
-<img alt="alt text" src="../assets/practica2-3/image-14.png" /></p>
-<h1 id="3-anadiendo-cabeceras">3.- Añadiendo cabeceras</h1>
-<p>Además de haber mirado los logs, vamos a demostrar aún de forma más clara que la petición está pasando por el proxy inverso y que está llegando al servidor web y que vuelve por el mismo camino.</p>
-<p>Para ello, añadiremos una cabecera en el fichero de configuración del <strong>Proxy inverso</strong> dentro de <code>location / {...}</code> añadimos esta directiva: <code>add_header Host nombre_del_host</code>, quedaría así:
-<img alt="alt text" src="../assets/practica2-3/image-9.png" /></p>
-<p>El siguiente paso será reiniciar <strong>nginx</strong>:
-<img alt="alt text" src="../assets/practica2-3/image-16.png" /></p>
-<p>Ahora comprobamos que podemos acceder al sitio web sin problemas y buscamos que el proxy inverso ha añadido la cabecera a la respuesta:
-<img alt="alt text" src="../assets/practica2-3/image-18.png" /></p>
-<p>Y ahora hacemos el mismo paso en nuestro <strong>WebServer</strong>. Si todo esta correcto, aparecerán ambas cabeceras.
-<img alt="alt text" src="../assets/practica2-3/image-19.png" /></p>
-<p><strong>IMPORTANTE</strong> Para realizar estas comprobaciones es imprescindible tener marcado el <strong>checkbox</strong> de <code>Desactivar caché</code>, ya que si no se marca esta opción la página se guardará en la memoria caché del navegador y no recibiréis la respuesta del servidor.
-<img alt="alt text" src="../assets/practica2-3/image-17.png" /></p>
+<h1 id="4-configuracion-basica-de-nginx">4.- Configuración básica de Nginx</h1>
+<p>En este paso borraremos los sitios habilitados en nuestro servidor de <strong>Nginx</strong> para evitar posibles conflictos. En caso de haber hecho una instalación limpia, solamente tendremos que borrar <code>default</code> con el comando <code>sudo rm /etc/nginx/sites-enabled/default</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-9.png" /></p>
+<p>Podemos verificar si se ha borrado correctamente con el comando <code>ls</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-10.png" /></p>
+<h1 id="5-creacion-de-host-virtuales">5.- Creación de host virtuales</h1>
+<h2 id="51-creacion-de-archivos-de-configuracion">5.1.- Creación de archivos de configuración</h2>
+<p>Aquí crearemos dos archivos de configuración de host virtual en <code>/etc/nginx/sites-available/</code>, uno para cada usuario. Para ello usamos el comando <code>sudo nano /etc/nginx/sites-available/nombreDescriptivo</code>.<br></p>
+<p>Se nos abrirá una ventana vacía donde tendremos que implementar la siguiente configuración: <br></p>
+<pre><code>server {
+    listen 80;
+    server_name usuario1.local;
+
+    root /home/usuario1/public_html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+</code></pre>
+<p><img alt="alt text" src="../assets/amplicacion/image-11.png" /></p>
+<p>Ahora realizamos los mismos pasos para el segundo usuario.<br>
+<img alt="alt text" src="../assets/amplicacion/image-12.png" /></p>
+<h2 id="52-habilitar-los-enlaces-simbolicos">5.2.- Habilitar los enlaces simbólicos</h2>
+<p>En este paso crearemos los enlaces simbólicos de ambas páginas con <code>sudo ln -s sudo ln -s /etc/nginx/sites-available/nombreUsuario /etc/nginx/sites-enabled/</code>. Con este comando habilitamos nuestra página.<br>
+<img alt="alt text" src="../assets/amplicacion/image-13.png" /></p>
+<p>Verificamos la configuracion con <code>sudo nginx -t</code> para asegurarnos que no hay errores.<br>
+<img alt="alt text" src="../assets/amplicacion/image-14.png" /></p>
+<p>Y por ultimo, reiniciamos <strong>Nginx</strong> con <code>sudo systemctl restart nginx</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-15.png" /></p>
+<h1 id="6-configuracion-del-archivo-host">6.- Configuración del archivo host</h1>
+<p>Para que nuestras páginas funcionen, deberemos editar nuestro fichero <code>hosts</code> en tu sistema local para poder resolver los dominios creados y así poder acceder. En Windows, editamos <code>C:\Windows\System32\drivers\etc\hosts.</code> y ponemos lo siguiente:<br>
+<img alt="alt text" src="../assets/amplicacion/image-16.png" /></p>
+<p>Guardamos los cambios y accedemos a nuestro navegador para ver el contenido: <br>
+<img alt="alt text" src="../assets/amplicacion/image-17.png" />
+<img alt="alt text" src="../assets/amplicacion/image-18.png" /></p>
+<h1 id="7-implementacion-de-conexion-segura">7.- Implementación de conexión segura</h1>
+<p>Ahora que sabemos que podemos acceder a nuestros sitios webs, los modificaremos para acceder mediante <code>HTTPS</code>, para ello, lo primero que tendremos que hacer es generar un <code>certificado SSL</code>, para ello lo primero que hacemos es crearnos un directorio donde guardarlos con <code>sudo mkdir /etc/nginx/ssl</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-19.png" /></p>
+<p>Después, nos creamos nuestro certificado ssl con: <br></p>
+<pre><code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /etc/nginx/ssl/nginx-selfsigned.key \
+  -out /etc/nginx/ssl/nginx-selfsigned.crt
+</code></pre>
+<p>En el proceso de creación, nos pedirá distintos datos para la creación del certificado.<br>
+<img alt="alt text" src="../assets/amplicacion/image-20.png" /></p>
+<h2 id="71-modificacion-de-los-archivos-de-configuracion">7.1.- Modificación de los archivos de configuración</h2>
+<p>Ahora actualizamos la configuración de los hosts virtuales con <code>sudo nano /etc/nginx/sites-available/nombreArchivo</code> donde introduciremos una nueva sección para agregar el bloque <code>HTTPS</code>.<br></p>
+<pre><code>server {
+    listen 443 ssl;
+    server_name usuario1.local;
+
+    ssl_certificate /etc/nginx/ssl/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx-selfsigned.key;
+
+    root /home/usuario1/public_html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+</code></pre>
+<p>Quedaría de la siguiente manera:<br>
+<img alt="alt text" src="../assets/amplicacion/image-21.png" /></p>
+<p>Ahora repetimos el proceso con el otro archivo de configuración.<br></p>
+<p><img alt="alt text" src="../assets/amplicacion/image-22.png" /></p>
+<p>Verrificamos la configuración de <strong>Nginx</strong> con <code>sudo nginx -t</code> y lo reiniciamos con <code>sudo systemctl restart nginx</code>.<br>
+<img alt="alt text" src="../assets/amplicacion/image-23.png" /></p>
+<p>Lo último es probar los cambios, para ello accedemos a nuestro navegador y visitamos <code>https://usuario1.local</code> y <code>https://usuario2.local</code>. Al ser un certificado autofirmado, al entrar en la página nos aparecerá la siguiente pantalla, donde necesitaremos aceptar los riesgos para poder acceder. <br>
+<img alt="alt text" src="../assets/amplicacion/image-24.png" /></p>
+<p>Y ya podriamos ver el contenido.<br>
+<img alt="alt text" src="../assets/amplicacion/image-26.png" /></p>
+<p>Si queremos ver el certificado, clicamos en el candado que aparece al lado de la <strong>url</strong> y veremos la información.<br>
+<img alt="alt text" src="../assets/amplicacion/image-25.png" /></p>
 
 
 

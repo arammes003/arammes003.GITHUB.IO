@@ -142,41 +142,62 @@ Aquí invitamos a un compañero a ser colaborador, para ello:
 
 ## 13.- Crear una rama v0.2
 
+Crear una rama v0.2.
+
+Posiciona tu carpeta de trabajo en esta rama.
 ![alt text](./assets/practica5-1/image-32.png)
 
 ## 14.- Añadir fichero 2.txt
 
+Añadir un fichero 2.txt en la rama v0.2.
 ![alt text](./assets/practica5-1/image-33.png)
 
 ## 15.- Crear rama remota v0.2
 
+Subir los cambios al repositorio remoto.
 ![alt text](./assets/practica5-1/image-34.png)
 ![alt text](./assets/practica5-1/image-35.png)
 ![alt text](./assets/practica5-1/image-36.png)
 
 ## 16.- Merge directo
 
+Posicionarse en la rama master.
+
+Hacer un merge de la rama v0.2 en la rama master.
 ![alt text](./assets/practica5-1/image-37.png)
 
 ## 17.- Merge con conflicto
 
 Para esto, ambas ramas tendrán que modificar el mismo archivo, para ello, modificaremos el fichero **1.txt**.
 
-1. Desde la rama `main`, pondremos un texto, en mi caso **main**;
-   ![alt text](./assets/practica5-1/image-38.png)
-2. Hacemos commit:
-   ![alt text](./assets/practica5-1/image-39.png)
-   ![alt text](./assets/practica5-1/image-40.png)
+1. En la rama master poner Hola en el fichero 1.txt y hacer commit.
+   ![alt text](./assets/practica5-1/image-42.png)
 
-3. Desde la rama `v0.2`, pondremos **v0.2**;
-   ![alt text](./assets/practica5-1/image-41.png)
+2. Posicionarse en la rama v0.2 y poner Adios en el fichero "1.txt" y hacer commit.
+   ![alt text](./assets/practica5-1/image-43.png)
 
-4. Hacemos un merge desde main:
+3. Posicionarse de nuevo en la rama master y hacer un merge con la rama v0.2
+   ![alt text](./assets/practica5-1/image-44.png)
 
 ## 18.- Listado de ramas
 
+Listar las ramas con merge y las ramas sin merge.
+![alt text](./assets/practica5-1/image-45.png)
+
 ## 19.- Arreglar conflicto
+
+Arreglar el conflicto anterior y hacer un commit.
+![alt text](./assets/practica5-1/image-46.png)
 
 ## 20.- Borrar rama
 
+Crear un tag v0.2
+![alt text](./assets/practica5-1/image-48.png)
+
+Borrar la rama v0.2
+![alt text](./assets/practica5-1/image-47.png)
+
 ## 21.- Listado de cambios
+
+Listar los distintos commits con sus ramas y sus tags.
+![alt text](./assets/practica5-1/image-48.png)

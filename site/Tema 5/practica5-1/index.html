@@ -1,0 +1,1348 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mydomain.org/mysite/Tema%205/practica5-1/">
+      
+      
+        <link rel="prev" href="../../Tema%204/practica4-1/">
+      
+      
+        <link rel="next" href="../practica5-2/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Ejercicios Git y Github I - Alfonso Ramírez Mestanza - DAW</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ejercicios-git-y-github-i" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Alfonso Ramírez Mestanza - DAW" class="md-header__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Alfonso Ramírez Mestanza - DAW
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ejercicios Git y Github I
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Alfonso Ramírez Mestanza - DAW" class="md-nav__button md-logo" aria-label="Alfonso Ramírez Mestanza - DAW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Alfonso Ramírez Mestanza - DAW
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica-amplicacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica de Amplicación.- Configuración de un servidor Nginx con Hosts Virtuales y directorios de usuario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practica 2.1 - Instalación y configuración de un servidor web Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.2 - Autenticación en Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.3.- Proxy inverso con Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.4.- Balanceo de carga con proxy inverso en Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica2-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica2.5.- Proxy Inverso y Balanceo de carga con SSL en NGINX
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tema%203/practica3-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.1.- Instalación de Tomcat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tema%203/practica3-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.2: Despliegue de aplicaciones con Node Express
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tema%203/practica3-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.3.- Despliegue de una aplicación Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tema%204/practica4-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.1.- Configuración de un servidor DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ejercicios Git y Github I
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios Git y Github I
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-crear-repositorio-deaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Crear repositorio DEAW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-crear-un-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Crear un README
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-commit-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.- Commit inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-push-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.- Push inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ignorar-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.- Ignorar archivos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-anadir-fichero-1txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.- Añadir fichero 1.txt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-crear-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.- Crear el tag v0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-subir-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.- Subir el tag v0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cuenta-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.- Cuenta de GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.- Cuenta de GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-actualizar-foto-de-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.- Actualizar foto de perfil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-activar-factor-de-doble-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.- Activar factor de doble autenticación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-uso-social-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.- Uso social de GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.- Uso social de GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-seguir-a-2-companeros-de-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1.- Seguir a 2 compañeros de clase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-anadir-una-estrella-a-los-repositorios-deaw-de-tus-companeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2.- Añadir una estrella a los repositorios DEAW de tus compañeros.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-crear-una-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.- Crear una tabla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-colaboradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.- Colaboradores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-crear-una-rama-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.- Crear una rama v0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-anadir-fichero-2txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.- Añadir fichero 2.txt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-crear-rama-remota-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.- Crear rama remota v0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-merge-directo" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.- Merge directo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-merge-con-conflicto" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.- Merge con conflicto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-listado-de-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      18.- Listado de ramas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-arreglar-conflicto" class="md-nav__link">
+    <span class="md-ellipsis">
+      19.- Arreglar conflicto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-borrar-rama" class="md-nav__link">
+    <span class="md-ellipsis">
+      20.- Borrar rama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-listado-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      21.- Listado de cambios
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica5-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    # Ejercicios Git y Github II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-crear-repositorio-deaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- Crear repositorio DEAW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-crear-un-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Crear un README
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-commit-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.- Commit inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-push-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.- Push inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ignorar-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.- Ignorar archivos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-anadir-fichero-1txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.- Añadir fichero 1.txt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-crear-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.- Crear el tag v0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-subir-el-tag-v01" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.- Subir el tag v0.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cuenta-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.- Cuenta de GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.- Cuenta de GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-actualizar-foto-de-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.- Actualizar foto de perfil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-activar-factor-de-doble-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.- Activar factor de doble autenticación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-uso-social-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.- Uso social de GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.- Uso social de GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-seguir-a-2-companeros-de-clase" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1.- Seguir a 2 compañeros de clase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-anadir-una-estrella-a-los-repositorios-deaw-de-tus-companeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2.- Añadir una estrella a los repositorios DEAW de tus compañeros.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-crear-una-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.- Crear una tabla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-colaboradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      12.- Colaboradores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-crear-una-rama-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.- Crear una rama v0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-anadir-fichero-2txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.- Añadir fichero 2.txt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-crear-rama-remota-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.- Crear rama remota v0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-merge-directo" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.- Merge directo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-merge-con-conflicto" class="md-nav__link">
+    <span class="md-ellipsis">
+      17.- Merge con conflicto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-listado-de-ramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      18.- Listado de ramas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-arreglar-conflicto" class="md-nav__link">
+    <span class="md-ellipsis">
+      19.- Arreglar conflicto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-borrar-rama" class="md-nav__link">
+    <span class="md-ellipsis">
+      20.- Borrar rama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-listado-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      21.- Listado de cambios
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ejercicios-git-y-github-i">Ejercicios Git y Github I</h1>
+<h2 id="1-crear-repositorio-deaw">1.- Crear repositorio DEAW</h2>
+<ol>
+<li>El primer paso para realizar esta práctica será crear un nuevo repositorio en Github llamado <code>DEAW</code>;
+   <img alt="alt text" src="../assets/practica5-1/image.png" /></li>
+<li>Clonamos el repositorio en nuestro sistema local con el enlace que nos genera el repositorio con <code>git clone https://github.com/TuUsuarioDeGit/DEAW.git</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-1.png" /></li>
+</ol>
+<h2 id="2-crear-un-readme">2.- Crear un README</h2>
+<p>En este paso lo único que tenemos que hacer es crear un README.md con <code>sudo nano</code>.
+<img alt="alt text" src="../assets/practica5-1/image-2.png" /></p>
+<h2 id="3-commit-inicial">3.- Commit inicial</h2>
+<p>Realizamos un commit con el comentario <code>Comenzamos con los ejercicios de Git</code> con los siguientes comandos:</p>
+<pre><code class="language-bash">    git add README.md
+    git commit -m &quot;Comenzamos con los ejercicios de Git&quot;
+</code></pre>
+<p><img alt="alt text" src="../assets/practica5-1/image-3.png" /></p>
+<h2 id="4-push-inicial">4.- Push inicial</h2>
+<ol>
+<li>
+<p>Subimos los cambios al repositorio remoto con el comando <code>git push -u origin main</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-4.png" /></p>
+</li>
+<li>
+<p>Accedemos a nuestra cuenta de <strong>GitHub</strong> y comprobamos que se han subido los cambios.
+   <img alt="alt text" src="../assets/practica5-1/image-5.png" /></p>
+</li>
+</ol>
+<h2 id="5-ignorar-archivos">5.- Ignorar archivos</h2>
+<ol>
+<li>
+<p>Creamos un archivo local llamado <code>privado.txt</code> dentro de nuestro repositorio con <code>nano privado.txt</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-6.png" /></p>
+</li>
+<li>
+<p>Creamos una carpeta llamada <code>privada</code> con <code>mkdir privada</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-7.png" /></p>
+</li>
+<li>Ignoramos la subida del directorio y del fichero creando un fichero <code>nano .gitignore</code> dónde pondremos lo siguiente:</li>
+</ol>
+<pre><code class="language-bash">privado.txt
+privada
+</code></pre>
+<p><img alt="alt text" src="../assets/practica5-1/image-8.png" /></p>
+<h2 id="6-anadir-fichero-1txt">6.- Añadir fichero 1.txt</h2>
+<p>Para añadir un fichero al repositorio local tenemos que hacer lo siguiente:</p>
+<ol>
+<li>
+<p>Debemos crear el fichero con <code>nano 1.txt</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-9.png" /></p>
+</li>
+<li>
+<p>Añadimos el fichero con <code>git add 1.txt</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-10.png" /></p>
+</li>
+<li>
+<p>Vemos el estado de git con <code>git status</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-11.png" /></p>
+</li>
+</ol>
+<h2 id="7-crear-el-tag-v01">7.- Crear el tag v0.1</h2>
+<ol>
+<li>Creamos el tag con <code>git tag v0.1</code>.
+   <img alt="alt text" src="../assets/practica5-1/image-12.png" /></li>
+</ol>
+<h2 id="8-subir-el-tag-v01">8.- Subir el tag v0.1</h2>
+<ol>
+<li>Creamos un commit con `git commit -m "Texto Descriptivo";
+   <img alt="alt text" src="../assets/practica5-1/image-13.png" /></li>
+</ol>
+<h2 id="9-cuenta-de-github">9.- Cuenta de GitHub</h2>
+<h3 id="91-actualizar-foto-de-perfil">9.1.- Actualizar foto de perfil</h3>
+<p>Para ello, seguimos los siguientes pasos:</p>
+<ol>
+<li>Entramos en github.</li>
+<li>En la parte superior derecha encontramos un logo que es nuestro perfil.</li>
+<li>Clicamos en tu perfil</li>
+<li>Pulsamos sobre la imagen que sale y nos sale la opcion de cambiar avatar.
+   <img alt="alt text" src="../assets/practica5-1/image-14.png" /></li>
+</ol>
+<h3 id="92-activar-factor-de-doble-autenticacion">9.2.- Activar factor de doble autenticación</h3>
+<ol>
+<li>Accedemos a configuración.</li>
+<li>Clicamos en contraseña y autenticación y pulsamos el boton de activar.
+   <img alt="alt text" src="../assets/practica5-1/image-15.png" /></li>
+<li>Nos pide nuestra contraseña de Github.</li>
+<li>Seguimos una serie de pasos para activarlo.</li>
+<li>Cuando acabemos nos aparecerá esta pantalla.
+   <img alt="alt text" src="../assets/practica5-1/image-17.png" /></li>
+<li>Ya tendríamos activado nuestro doble factor de autenticación.
+   <img alt="alt text" src="../assets/practica5-1/image-18.png" /></li>
+</ol>
+<h2 id="10-uso-social-de-github">10.- Uso social de GitHub</h2>
+<h3 id="101-seguir-a-2-companeros-de-clase">10.1.- Seguir a 2 compañeros de clase</h3>
+<p>Para ello buscamos el nombre en la lupa.
+<img alt="alt text" src="../assets/practica5-1/image-19.png" /></p>
+<p>Y clicamos en seguir.
+<img alt="alt text" src="../assets/practica5-1/image-21.png" />
+<img alt="alt text" src="../assets/practica5-1/image-22.png" /></p>
+<p>Desde nuestro perfil podemos ver a quien seguimos.
+<img alt="alt text" src="../assets/practica5-1/image-23.png" /></p>
+<h3 id="102-anadir-una-estrella-a-los-repositorios-deaw-de-tus-companeros">10.2.- Añadir una estrella a los repositorios DEAW de tus compañeros.</h3>
+<p><img alt="alt text" src="../assets/practica5-1/image-24.png" /></p>
+<h2 id="11-crear-una-tabla">11.- Crear una tabla</h2>
+<p>Crear una tabla en el fichero <code>README.md</code> con la información de algunos de tus compañeros.
+<img alt="alt text" src="../assets/practica5-1/image-25.png" /></p>
+<p>Añadimos el fichero a stash con <code>git add README.md</code>
+<img alt="alt text" src="../assets/practica5-1/image-27.png" /></p>
+<p>Creamos un commit con los cambios<code>git commit -m "Tabla en Git"</code>.
+<img alt="alt text" src="../assets/practica5-1/image-28.png" /></p>
+<p>Subimos los cambios con <code>git push -u origin main</code>.
+<img alt="alt text" src="../assets/practica5-1/image-26.png" /></p>
+<h2 id="12-colaboradores">12.- Colaboradores</h2>
+<p>Aquí invitamos a un compañero a ser colaborador, para ello:</p>
+<ol>
+<li>Accedemos al repositorio.</li>
+<li>Accedemos a la configuración del repositorio.</li>
+<li>Pulsamos en colabordores.</li>
+<li>Pulsamos en añadir colabordores.
+   <img alt="alt text" src="../assets/practica5-1/image-29.png" /></li>
+<li>Añadimos el nombre de la persona.
+   <img alt="alt text" src="../assets/practica5-1/image-30.png" /></li>
+<li>Le invitamos.
+   <img alt="alt text" src="../assets/practica5-1/image-31.png" /></li>
+</ol>
+<h2 id="13-crear-una-rama-v02">13.- Crear una rama v0.2</h2>
+<p><img alt="alt text" src="../assets/practica5-1/image-32.png" /></p>
+<h2 id="14-anadir-fichero-2txt">14.- Añadir fichero 2.txt</h2>
+<p><img alt="alt text" src="../assets/practica5-1/image-33.png" /></p>
+<h2 id="15-crear-rama-remota-v02">15.- Crear rama remota v0.2</h2>
+<p><img alt="alt text" src="../assets/practica5-1/image-34.png" />
+<img alt="alt text" src="../assets/practica5-1/image-35.png" />
+<img alt="alt text" src="../assets/practica5-1/image-36.png" /></p>
+<h2 id="16-merge-directo">16.- Merge directo</h2>
+<p><img alt="alt text" src="../assets/practica5-1/image-37.png" /></p>
+<h2 id="17-merge-con-conflicto">17.- Merge con conflicto</h2>
+<p>Para esto, ambas ramas tendrán que modificar el mismo archivo, para ello, modificaremos el fichero <strong>1.txt</strong>.</p>
+<ol>
+<li>Desde la rama <code>main</code>, pondremos un texto, en mi caso <strong>main</strong>;
+   <img alt="alt text" src="../assets/practica5-1/image-38.png" /></li>
+<li>
+<p>Hacemos commit:
+   <img alt="alt text" src="../assets/practica5-1/image-39.png" />
+   <img alt="alt text" src="../assets/practica5-1/image-40.png" /></p>
+</li>
+<li>
+<p>Desde la rama <code>v0.2</code>, pondremos <strong>v0.2</strong>;
+   <img alt="alt text" src="../assets/practica5-1/image-41.png" /></p>
+</li>
+<li>
+<p>Hacemos un merge desde main:</p>
+</li>
+</ol>
+<h2 id="18-listado-de-ramas">18.- Listado de ramas</h2>
+<h2 id="19-arreglar-conflicto">19.- Arreglar conflicto</h2>
+<h2 id="20-borrar-rama">20.- Borrar rama</h2>
+<h2 id="21-listado-de-cambios">21.- Listado de cambios</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

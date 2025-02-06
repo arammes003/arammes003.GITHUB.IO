@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://mydomain.org/mysite/Tema%203/practica3-3/">
+        <link rel="canonical" href="https://mydomain.org/mysite/Tema%206/practica6-1/">
       
       
-        <link rel="prev" href="../practica3-2/">
+        <link rel="prev" href="../../Tema%205/practica5-2/">
       
-      
-        <link rel="next" href="../../Tema%204/practica4-1/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Práctica 3.3.- Despliegue de una aplicación Flask - Alfonso Ramírez Mestanza - DAW</title>
+        <title>Practica6 1 - Alfonso Ramírez Mestanza - DAW</title>
       
     
     
@@ -63,11 +61,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#practica-33-despliegue-de-una-aplicacion-flask" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -100,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Práctica 3.3.- Despliegue de una aplicación Flask
+              Practica6 1
             
           </span>
         </div>
@@ -378,19 +371,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -404,7 +395,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Tema 3
@@ -418,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practica3-1/" class="md-nav__link">
+      <a href="../../Tema%203/practica3-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -439,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practica3-2/" class="md-nav__link">
+      <a href="../../Tema%203/practica3-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -457,19 +448,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Tema%203/practica3-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -478,7 +460,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -642,17 +623,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -666,7 +649,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Tema 6
@@ -677,10 +660,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Tema%206/practica6-1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -689,6 +679,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -718,8 +709,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -734,244 +723,9 @@
                   
 
 
-<h1 id="practica-33-despliegue-de-una-aplicacion-flask">Práctica 3.3.- Despliegue de una aplicación Flask</h1>
-<p>Antes de empezar con el despliegue, nos conectaremos mediante <strong>SSH</strong> desde nuestra máquina a la máquina <strong>Debian</strong> mediante el comando <code>ssh nombreUsuarioDebian@direccionIpDebian</code>, de la siguiente manera:</p>
-<p><img alt="alt text" src="../assets/practica3.3/image.png" /></p>
-<h1 id="1-procedimiento-para-el-despliegue">1.- Procedimiento para el despliegue</h1>
-<p>Para realizar el despligue de una aplicación <strong>Flask</strong> seguiremos una serie de pasos:</p>
-<ol>
-<li>
-<p>Actualizamos los repositorios de paquetes del sistema con <code>sudo apt update</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-1.png" /></p>
-</li>
-<li>
-<p>Instalamos el gestor de paquetes de <strong>Python</strong> con <code>sudo apt install python3-pip</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-2.png" /></p>
-</li>
-<li>
-<p>Instalamos el paquete <strong>pipenv</strong> que se encarga de gestionar los entornos virtuales con <br> <code>sudo apt install pipenv</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-3.png" /></p>
-</li>
-<li>
-<p>Comprobamos que está bien instalado mostrando su vesión con <code>pipenv --version</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-4.png" /></p>
-</li>
-<li>
-<p>Creamos el directorio donde almacenaremos nuestro proyecto con <br> <code>sudo mkdir /var/www/nombreAplicacion</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-5.png" /></p>
-</li>
-<li>
-<p>Como lo creamos con <code>sudo</code>, los permisos pertenecen al usuario <code>root</code> del sistema:<br>
-<img alt="alt text" src="../assets/practica3.3/image-6.png" /></p>
-</li>
-<li>
-<p>Hay que cambiarle los permisos para que pertenezcan a nuestro usuario (<strong>debianalfonso</strong> en mi caso) y pertenezca al grupo <strong>www-data</strong> con el siguiente comando <br> <code>sudo chwn -r USUARIO:www-data /var/www/nombreAplicacion</code><br>
-<img alt="alt text" src="../assets/practica3.3/image-7.png" /></p>
-</li>
-<li>
-<p>Establecemos los permisos adecuados para que pueda ser leído por todo el mundo con <code>sudo chmod -R 775 /var/www/nombreAplicacion</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-30.png" /></p>
-</li>
-<li>
-<p>Dentro del directorio de nuestra aplicación, creamos un archivo oculto <code>.env</code> que contendrá las variables de entorno con el comando <code>touch .env</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-8.png" /></p>
-</li>
-<li>
-<p>Editamos el archivo y añadimos las variables, indicando cuál es el archivo <code>.py</code> de la aplicación y el entorno, que en nuestro caso será <strong>production</strong>. Para editarlo usamos el comando: <code>sudo nano .env</code> y después verificamos los cambios con <code>cat .env</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-9.png" />
-<img alt="alt text" src="../assets/practica3.3/image-10.png" /></p>
-</li>
-<li>
-<p>Iniciamos el entorno virtual mediante <code>pipenv shell</code>. <strong>Pipenv</strong> cargará las variables de entorno desde el fichero <code>.env</code> de forma automática.<br>
-<img alt="alt text" src="../assets/practica3.3/image-11.png" /></p>
-</li>
-<li>
-<p>Ahora usamos <code>pipenv install flask gunicorn</code> para instalar las dependencias necesarias para nuestro proyecto.<br>
-<img alt="alt text" src="../assets/practica3.3/image-12.png" /></p>
-</li>
-<li>
-<p>Ahora vamos a crear nuestra aplicación <strong>Flask</strong> lo más rápido posible. Para ello crearemos dos archivos, <code>application.py</code> y <code>wsgi.py</code> con este contenido respectivamente, mediante el comando <code>touch application.py wsgi.py</code> <br>
-<img alt="alt text" src="../assets/practica3.3/image-13.png" /></p>
-</li>
-<li>
-<p>Ahora añadimos el contenido a cada archivo.<br></p>
-</li>
-</ol>
-<p>Archivo <strong>application.py</strong>:</p>
-<pre><code>from flask import Flask
+  <h1>Practica6 1</h1>
 
-app = Flask(__name__)
 
-@app.route('/')
-def index():
-        return '&lt;h1&gt;Aplicacion desplegada&lt;/h1&gt;'
-</code></pre>
-<p><img alt="alt text" src="../assets/practica3.3/image-14.png" /></p>
-<p>Archivo <strong>wsgi.py</strong>:</p>
-<pre><code>from application import app
-
-if __name__ == '__main__':
-        app.run(debug=False)
-
-</code></pre>
-<p><img alt="alt text" src="../assets/practica3.3/image-15.png" /></p>
-<ol>
-<li>
-<p>Ahora iniciamos nuestra aplicación con <code>flask run --host '0.0.0.0'</code> a modo de comprobación con el servidor web integrado en Flask. Si especificamos la dirección <code>0.0.0.0</code> lo que estamos diciendo al servidor es que escuche a todas sus interfaces en caso de tenerlas. 
-<img alt="alt text" src="../assets/practica3.3/image-16.png" /></p>
-</li>
-<li>
-<p>Ahora accedemos desde nuestro navegador a la dirección IP <code>http://IP-maq-virtual:5000</code> y deberíamos ver lo siguiente:
-<img alt="alt text" src="../assets/practica3.3/image-17.png" /></p>
-</li>
-<li>
-<p>Tras esto, paramos el servidor con <code>CTRL + C</code>.</p>
-</li>
-<li>
-<p>Ahora comprobaremos que <strong>Gunicor</strong> funciona correctamente mediante el comando <code>gunicorn -workers 4 --bind 0.0.0.0:5000 wsgi:app</code>. Si con el servidor de desarrollo no tuvimos ningun problema, deberiamos verlo perfectamente en nuestro navegador:<br>
-<img alt="alt text" src="../assets/practica3.3/image-18.png" /></p>
-</li>
-<li>
-<p>Todavía dentro del entorno virtual, debemos obtener la ruta desde donde se ejecuta <strong>gunicorn</strong> para poder configurar más adelante un servicio del sistema con el comando <code>which gunicorn</code>:<br>
-<img alt="alt text" src="../assets/practica3.3/image-19.png" /></p>
-</li>
-<li>
-<p>Por último, salimos del entorno virtual con <code>deactivate</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-20.png" /></p>
-</li>
-</ol>
-<h1 id="2-despliegue-con-nginx">2.- Despliegue con Nginx</h1>
-<p>Iniciamos Nginx y comprobamos que su estado sea activo:<br></p>
-<pre><code>sudo systemctl start nginx
-
-sudo systemctl status nginx
-</code></pre>
-<p><img alt="alt text" src="../assets/practica3.3/image-21.png" /></p>
-<ol>
-<li>
-<p>Creamos un archivo con <code>sudo nano /etc/systemd/system/nombreArchivo</code> para que <code>systemd</code> corra <strong>Gunicorn</strong> como un servicio más del sistema:<br>
-<img alt="alt text" src="../assets/practica3.3/image-22.png" /></p>
-</li>
-<li>
-<p>Ahora habilitamos el servicio con <code>systemctl enable nombreServicio</code> y lo iniciamos con <code>systemctl start nombreServicio</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-23.png" /></p>
-</li>
-<li>
-<p>Ahora crearemos un archivo de configuración en <strong>Nginx</strong> con <code>sudo nano /etc/nginx/sites-available/nombreAplicacion</code> y ponemos lo siguiente:<br></p>
-</li>
-</ol>
-<pre><code>server {
-    listen 80;
-    server_name mi_aplicacion www.mi_aplicacion;
-
-    access_log /var/log/nginx/mi_aplicacion.access.log;
-    error_log /var/log/nginx/mi_aplicacion.error.log;
-
-    location / { 
-            include proxy_params;
-            proxy_pass http://unix:/var/www/nombre_aplicacion/nombre_aplicacion.sock;
-    }
-}   
-</code></pre>
-<p><img alt="alt text" src="../assets/practica3.3/image-24.png" /></p>
-<ol>
-<li>
-<p>Ahora creamos un enlace simbólico con <code>sudo ln -s /etc/nginx/sites-available/aplicacionFlask /etc/nginx/sites-enabled/</code> y nos aseguramos que se ha creado el enlace con <code>ls -l /etc/nginx/sites-enabled/ | grep aplicacionFlask</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-25.png" /></p>
-</li>
-<li>
-<p>Comprobamos que el archivo de configuración no contiene errores, reiniciamos <strong>Nginx</strong> y comprobamos que este activo:<br></p>
-</li>
-</ol>
-<pre><code>nginx -t
-
-sudo systemctl restart nginx
-
-sudo systemctl status nginx
-</code></pre>
-<p><img alt="alt text" src="../assets/practica3.3/image-27.png" /></p>
-<ol>
-<li>
-<p>Ahora la única manera de acceder a nuestra aplicación es mediante el <code>server_name</code>. Para ello, editamos el archivo <code>/etc/hosts</code> de nuestra máquina para que asocie la IP de la máquina virtual a nuestro <code>server_name</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/image-29.png" /></p>
-</li>
-<li>
-<p>El último paso es acceder mediante nuestro navegador: <br>
-<img alt="alt text" src="../assets/practica3.3/image-28.png" /></p>
-</li>
-</ol>
-<h1 id="3-ejercicio">3.- Ejercicio</h1>
-<p>Repite todo el proceso con la aplicación del siguiente repositorio: https://github.com/raul-profesor/Practica-3.5.</p>
-<p>Clonamos el repositorio en nuestro direectorio <code>/var/www</code> con el comando <code>sudo git clone https://github.com/raul-profesor/Practica-3.5</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image.png" /></p>
-<p>Cambiamos el dueño a nuestro usuario con el comando <code>sudo chown -R USUARIO:www-data /var/www/nombreAplicacion</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-1.png" /></p>
-<p>Establecemos los permisos adecuados con <code>chmod -R 775 /var/www/nombreAplicacion</code>. <br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-2.png" /></p>
-<p>Creamos un archivo oculto <code>.env</code> dentro del directorio de nuestra aplicación con <code>touch .env</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-3.png" /></p>
-<p>Editamos el archivo con <code>sudo nano .env</code> y después vemos los cambios con <code>cat .env</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-4.png" />
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-5.png" /></p>
-<p>Ahora iniciamos nuestro entorno virtual con <code>pipenv shell</code> para que cargue las variables de entorno desde el fichero <code>.env</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-6.png" /></p>
-<p>Ahora instalamos las dependencias  con <code>pipenv install -r requirements.txt</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-7.png" /></p>
-<p>Instalamos <code>gunicorn</code> con el comando <code>pipenv install flask gunicorn</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-9.png" /></p>
-<p>Creamos un archivo <code>wsgi.py</code> que contendrá lo siguiente:<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-13.png" /></p>
-<p>Por último, corremos nuestra aplicación con <code>flask run --host '0.0.0.0'</code>;
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-8.png" /></p>
-<p>Y comprobamos que podemos acceder mediante <code>gunicorn --workers 4 --bind 0.0.0.0:8000 wsgi:app</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-10.png" />
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-20.png" /></p>
-<p>Usamos el comando <code>which gunicorn</code> para poder configurar más tarde un servicio.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-11.png" /></p>
-<p>Ya podemos salir del entorno virtual con <code>deactivate</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-21.png" /></p>
-<h1 id="31-nginx">3.1.- Nginx</h1>
-<p>Ahora vamos a desplegarla en <strong>Nginx</strong>, para ello:</p>
-<ol>
-<li>
-<p>Creamos un archivo para que <code>systemd</code> corra <strong>Gunicorn</strong> como un servicio más: <br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-12.png" /></p>
-</li>
-<li>
-<p>Ahora habilitamos el servicio con <code>systemctl enable nombreServicio</code> y lo iniciamos con <code>systemctl start nombreServicio</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-19.png" /></p>
-</li>
-<li>
-<p>Creamos un archivo donde configuraremos el sitio web de <strong>Nginx</strong> con <code>sudo nano /etc/nginx/sites-available/nombreAplicacion</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-14.png" /></p>
-</li>
-<li>
-<p>Creamos un enlace simbólico con <code>sudo ln -s /etc/nginx/sites-available/nombreAplicacion /etc/nginx/sites-enabled/</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-15.png" /></p>
-</li>
-<li>
-<p>Nos aseguramos que se ha creado con <code>ls -l /etc/nginx/sites-enabled | grep nombreAplicacion</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-16.png" /></p>
-</li>
-<li>
-<p>Comprobamos que <strong>Nginx</strong> no contiene errores con <code>nginx -t</code>, lo reiniciamos con <code>sudo systemctl restart nginx</code> y vemos su estado con <code>sudo systemctl status nginx</code>. <br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-17.png" /></p>
-</li>
-<li>
-<p>Lo último que tendremos que hacer es editar el archivo <code>/etc/hosts</code> para asociar la IP de la máquina a nuestro <code>server_name</code>.<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-18.png" /></p>
-</li>
-<li>
-<p>Accedemos al navegador y si todo ha ido bien veremos el siguiente contenido:<br>
-<img alt="alt text" src="../assets/practica3.3/ejercicio/image-22.png" /></p>
-</li>
-</ol>
-<h1 id="4-cuestiones">4.- Cuestiones</h1>
-<h2 id="41-busca-lee-entiende-y-explica-que-es-y-para-que-sirve-un-servidor-wsgi">4.1.- Busca, lee, entiende y explica qué es y para que sirve un servidor WSGI.</h2>
-<p>Un servidor WSGI es un estándar que define cómo los servidores web deben comunicarse con las aplicaciones web Python. Permite que aplicaciones como Flask o Django procesen solicitudes HTTP y generen respuestas.  Sirve para:
-- Conectar la aplicación Python con servidores web como NGINX o Apache.
-- Procesar solicitudes HTTP y devolver respuestas a los usuarios.
-- Mejorar el rendimiento mediante la gestión de múltiples procesos de trabajo (workers).</p>
 
 
 

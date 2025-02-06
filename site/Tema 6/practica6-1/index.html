@@ -20,7 +20,7 @@
     
     
       
-        <title>Practica6 1 - Alfonso Ramírez Mestanza - DAW</title>
+        <title>Práctica 6.1.- Dockerización del despliegue de una aplicación Node.js - Alfonso Ramírez Mestanza - DAW</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#practica-61-dockerizacion-del-despliegue-de-una-aplicacion-nodejs" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Practica6 1
+              Práctica 6.1.- Dockerización del despliegue de una aplicación Node.js
             
           </span>
         </div>
@@ -669,16 +674,75 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica 6.1.- Dockerización del despliegue de una aplicación Node.js
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Practica6 1
+    Práctica 6.1.- Dockerización del despliegue de una aplicación Node.js
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-por-que-dockerizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- ¿Por qué dockerizar?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-despliegue-con-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Despliegue con Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.- Docker Compose
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -709,6 +773,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-por-que-dockerizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.- ¿Por qué dockerizar?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-despliegue-con-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.- Despliegue con Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.- Docker Compose
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -723,9 +824,130 @@
                   
 
 
-  <h1>Practica6 1</h1>
+<h1 id="practica-61-dockerizacion-del-despliegue-de-una-aplicacion-nodejs">Práctica 6.1.- Dockerización del despliegue de una aplicación Node.js</h1>
+<h2 id="1-por-que-dockerizar">1.- ¿Por qué dockerizar?</h2>
+<ol>
+<li>
+<p>Permite una configuración rápida del entorno de forma local, ya que si todos los servicios están implementados en contenedores, es muy rápida la configuración del entorno.</p>
+</li>
+<li>
+<p>Evitas gran parte de los problemas de desarrollo que provienen de la configuración de cada integrante del equipo de desarrollo tienen de su entorno.</p>
+</li>
+<li>
+<p>Despliegues más rápidos.</p>
+</li>
+<li>
+<p>Mejor control de versiones ya que se puede etiquetar con <strong>tags</strong></p>
+</li>
+<li>
+<p>Rollbacks más fáciles ya que tienen las cosas muy controladas debido a la versión y así es más fácil revertir el código.</p>
+</li>
+<li>
+<p>Fácil configuración de múltiples entornos permitiendo establecer un entorno local, de integración, de puesta en escena y de producción. Esto se hace más fácil ya que la mayoría de veces simplemente con un cambio de VARIABLES DE ENTORNO lo tendremos desplegado.</p>
+</li>
+<li>
+<p>Apoyo de la comunidad existe una fuerte comunidad que contribuyen con grandes imágenes que pueden ser utilizadas para el desarrollo.</p>
+</li>
+</ol>
+<h2 id="2-despliegue-con-docker">2.- Despliegue con Docker</h2>
+<p>Primero nos conectamos desde nuestra máquina local a la virtual mediante <strong>ssh usuario@direccionIp</strong>.</p>
+<p><img alt="alt text" src="../assets/practica6-1/image.png" /></p>
+<p>El primer paso será clonar el repositorio de git en caso de no tenerlo con: <code>git clone https://github.com/raul-profesor/DAW_practica_6.1_2024.git</code>.
+<img alt="alt text" src="../assets/practica6-1/image-1.png" /></p>
+<p>Después, entramos en la carpeta con <code>cd DAW_practica_6.1_2024</code> y <code>nano Dockerfile</code> para modificar los siguientes campos:</p>
+<pre><code class="language-bash">_____ node:18.16.0-alpine3.17
 
+_____  mkdir -p /opt/app
 
+_____ /opt/app #
+
+_____ src/package.json src/package-lock.json .
+
+_____ npm install
+
+_____ src/ .
+
+_____ 3000
+
+_____ [&quot;npm&quot;, &quot;run&quot;, &quot;start:dev&quot;]
+</code></pre>
+<p>Después, completamos el fichero que debería quedar así:
+<img alt="alt text" src="../assets/practica6-1/image-2.png" /></p>
+<p>Ahora voy a explicar que es cada campo:</p>
+<pre><code class="language-bash"># Usamos la imagen de Node.js en Alpine
+FROM node:18.16.0-alpine3.17
+
+# Creamos el directorio de la aplicación
+RUN mkdir -p /opt/app
+
+# Definimos el directorio de trabajo
+WORKDIR /opt/app
+
+# Copiamos los archivos de las dependencias
+COPY src/package.json src/package-lock.json ./
+
+# Instalamos las dependencias
+RUN npm install
+
+# Copiamos el resto del código
+COPY src/ .
+
+# Usamos el puerto 3000 para acceder a la aplicación
+EXPOSE 3000
+
+# Comando por defecto para ejecutar la aplicación
+CMD [&quot;npm&quot;, &quot;start&quot;]
+</code></pre>
+<p>El siguiente paso es crear una build de la imagen de <strong>Docker</strong> con <code>docker build -t librodirecciones .</code>. Muy importante añadir el punto (.) al final para que se realice en el mismo directorio.
+<img alt="alt text" src="../assets/practica6-1/image-3.png" /></p>
+<p>Por último iniciamos el contenedor con <code>docker run -p 3000:3000 -d librodirecciones</code>. Con el comando <code>-p</code>, indicamos que queremos que escuche todas las conexiones que ocurran desde el puerto 3000 y con la opción.
+<img alt="alt text" src="../assets/practica6-1/image-4.png" /></p>
+<p>Accedemos desde nuestra máquina anfitriona a la dirección <code>direccionIpServidor:3000</code> y deberiamos ver lo siguiente:
+<img alt="alt text" src="../assets/practica6-1/image-5.png" /></p>
+<h2 id="21-docker-compose">2.1.- Docker Compose</h2>
+<p>Este fichero sirve para gestionar aplicaciones en más de un contenedor, esto te permite:</p>
+<ul>
+<li>Iniciar y detener múltiples contenedores en secuencia.</li>
+<li>Conectar contenedores utilizando una red virtual.</li>
+<li>Manejar la persistencia de datos.</li>
+<li>Establecer variables de entorno.</li>
+<li>Construir o descargar imágenes de contenedores según sea necesario.</li>
+</ul>
+<p>Este fichero tiene una extensión <code>YAML</code>, en nuestra aplicación es el siguiente:
+<img alt="alt text" src="../assets/practica6-1/image-6.png" /></p>
+<p>Para levantar nuestro docker-compose, simplemente lo hacemos con <code>docker compose run addressbook npm run migrate</code>. Con este comando se creará la base de datos con sus respectivas tablas.
+<img alt="alt text" src="../assets/practica6-1/image-7.png" />
+<img alt="alt text" src="../assets/practica6-1/image-8.png" /></p>
+<p>Y construimos los contenedores con <code>docker compose up --build -d</code>:
+<img alt="alt text" src="../assets/practica6-1/image-9.png" /></p>
+<p>Levantamos el contenedor con <code>docker compose up -d</code>.
+<img alt="alt text" src="../assets/practica6-1/image-13.png" /></p>
+<p>Podemos comprobar si los contenedores están levantados con <code>docker ps</code>;
+<img alt="alt text" src="../assets/practica6-1/image-12.png" /></p>
+<p>Hacemos unos test para comprobar que la aplicación funciona correctamente con <code>docker compose run addressbook npm test</code>. Este comando simulará ciertas peticiones de nuestra aplicación.
+<img alt="alt text" src="../assets/practica6-1/image-10.png" />
+<img alt="alt text" src="../assets/practica6-1/image-11.png" /></p>
+<h1 id="3-tarea">3.- Tarea</h1>
+<p>Probad que la aplicación junto con la BBDD funciona correctamente. El funcionamiento de la API es:</p>
+<p>Para ello desde la terminal de nuestra máquina física hacemos las siguientes peticiones:</p>
+<ul>
+<li>
+<p><code>GET /persons/all</code> muestra todas las personas en el libro de direcciones.
+  <img alt="alt text" src="../assets/practica6-1/image-14.png" /></p>
+</li>
+<li>
+<p><code>GET /persons/1</code> muestra la persona con el id 1.
+  <img alt="alt text" src="../assets/practica6-1/image-15.png" /></p>
+</li>
+<li>
+<p><code>PUT /persons/</code> añade una persona al libro de direcciones.
+  <img alt="alt text" src="../assets/practica6-1/image-16.png" /></p>
+</li>
+<li>
+<p><code>DELETE /persons/1</code> elimina a la persona con el id 1.
+  <img alt="alt text" src="../assets/practica6-1/image-17.png" /></p>
+</li>
+</ul>
 
 
 

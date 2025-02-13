@@ -407,7 +407,7 @@ Hacer un commit con el mensaje “Añadido nuevo autor.”
 ![alt text](./assets/practica5-2/image-101.png)
 
 Subir los cambios de la rama autoria al repositorio remoto en GitHub.
-![alt text](./assets/practica5-2/./assets/practica5-2/image-102.png)
+![alt text](./assets/practica5-2/image-102.png)
 
 Hacer un Pull Request de los cambios en la rama autoria.
 ![alt text](./assets/practica5-2/image-103.png)

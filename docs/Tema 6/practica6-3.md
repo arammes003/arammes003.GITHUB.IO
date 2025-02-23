@@ -200,8 +200,14 @@ docker run \
 
 ![alt text](./assets/practica6-3/image-17.png)
 
-7. Por último, accedemos a `http://IpMaquina:3000/demo` desde nuestra máquina y deberemos ver un mensaje solicitando creedenciales para loguearnos en el servidor openldap:
-   ![alt text](./assets/practica6-3/image-18.png)
+7. Por último, accedemos a `http://IpMaquina:3000/demo` desde nuestra máquina y deberemos ver un mensaje solicitando las creedenciales que hemos puesto para levantar el contenedor para loguearnos en el servidor openldap:
+
+```bash
+Usuario: admin
+Password: Secret123
+```
+
+![alt text](./assets/practica6-3/image-18.png)
 
 8. Tras loguearnos, veremos el contenido del archivo .php que creamos:
    ![alt text](./assets/practica6-3/image-19.png)
